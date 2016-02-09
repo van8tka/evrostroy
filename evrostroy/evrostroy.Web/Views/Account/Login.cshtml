@@ -3,7 +3,7 @@
     ViewBag.Title = "Вход";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Content/Site.css" rel="stylesheet" />
 
 <div class="panel mt30">
     <div class="panel-heading">
@@ -14,12 +14,16 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary()
+        
+
+            @Html.ValidationMessageFor(m => m.NameIn)
             <div class="form-group">
+                 
                 <label>Имя пользователя(email):</label>
-                @Html.TextBoxFor(m => m.NameIn, new { @class = "form-control" })
+               @Html.TextBoxFor(m => m.NameIn, new { @class = "form-control" })
             </div>
-            <div class="form-group">
+            @Html.ValidationMessageFor(m => m.PasswordIn)
+              <div class="form-group">             
                 <label>Пароль:</label>
                 @Html.PasswordFor(m => m.PasswordIn, new { @class = "form-control" })
             </div>

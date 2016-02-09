@@ -32,13 +32,18 @@ namespace evrostroy.Web.Controllers
                 if (us != null)
                 {
                     FormsAuthentication.SetAuthCookie(us.Имя, true);
-                    //if(returnUrl)
-                    return RedirectToLocal(returnUrl);
-
+                    if (returnUrl != "/")
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("MainPage", "Home");
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Пользователя с таким логином и паролем нет или не правильно введен логин и пароль");
+                    ModelState.AddModelError("NameIn", "Пользователя с таким логином и паролем нет или не правильно введен логин и пароль");
                 }
             }
             return View(model);
@@ -49,6 +54,20 @@ namespace evrostroy.Web.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("MainPage", "Home");
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(RegisterModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("MainPage", "Home");
+            }
+            return View(model);
         }
 
 
