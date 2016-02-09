@@ -1,0 +1,21 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    <div class="navbar-text">
+        <div>
+            @*определение имени пользователя сохраненного в куки в accountcontroller*@
+            Привет, @HttpContext.Current.User.Identity.Name!
+        </div>
+        @Html.ActionLink("Выход", "Logout", "Account")
+    </div>
+}
+else
+{
+    <div class="navbar-text">
+      
+            @Html.ActionLink("Вход/", "Login", "Account")
+            @Html.ActionLink("Регистрация", "Registration", "Account")
+      
+    </div>
+}
+

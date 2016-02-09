@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evrostroy.Web", "evrostroy.Web\evrostroy.Web.csproj", "{53B89858-A1B2-44E0-B521-15FA6629DD66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evrostroy.Domain", "evrostroy.Domain\evrostroy.Domain.csproj", "{062FE6BA-23C9-4049-8CA1-D1D06069D93F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53B89858-A1B2-44E0-B521-15FA6629DD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B89858-A1B2-44E0-B521-15FA6629DD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B89858-A1B2-44E0-B521-15FA6629DD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B89858-A1B2-44E0-B521-15FA6629DD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{062FE6BA-23C9-4049-8CA1-D1D06069D93F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{062FE6BA-23C9-4049-8CA1-D1D06069D93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{062FE6BA-23C9-4049-8CA1-D1D06069D93F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{062FE6BA-23C9-4049-8CA1-D1D06069D93F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

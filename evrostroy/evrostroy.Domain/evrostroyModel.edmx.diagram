@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6f11d86b2204c13b543aeea8e703d2c" Name="Diagram1">
+        <EntityTypeShape EntityType="evrostroydbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ДопИнформация" Width="1.5" PointX="5.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ДопХарактеристики" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.Заказы" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.Контакты" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.НовостиСтатьи" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ОснХарактеристики" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ОтзывМагазина" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ОтзывТовара" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.Пользователи" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.Роли" Width="1.5" PointX="1.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ТоваровЗаказа" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.Товары" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.Услуги" Width="1.5" PointX="7.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="evrostroydbModel.ФотоТовара" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <AssociationConnector Association="evrostroydbModel.FK_ДопХарактеристики_Товары" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_Заказы_Пользователи" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ТоваровЗаказа_Заказы" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ОснХарактеристики_Товары" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ОтзывМагазина_Пользователи" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ОтзывТовара_Пользователи" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ОтзывТовара_Товары" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_Пользователи_Роли" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ТоваровЗаказа_Товары" ManuallyRouted="false" />
+        <AssociationConnector Association="evrostroydbModel.FK_ФотоТовара_Товары" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

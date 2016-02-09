@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="evrostroydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ДопИнформация">
+    <Key>
+      <PropertyRef Name="ИдДопИнформации" />
+    </Key>
+    <Property Name="ИдДопИнформации" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Доставка" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="Оплата" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="Омагазине" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ДопХарактеристики">
+    <Key>
+      <PropertyRef Name="ИдДопХарактеристики" />
+    </Key>
+    <Property Name="ИдДопХарактеристики" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+    <Property Name="Название" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Значение" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_ДопХарактеристики_Товары" FromRole="ДопХарактеристики" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="Заказы">
+    <Key>
+      <PropertyRef Name="ИдЗаказа" />
+    </Key>
+    <Property Name="ИдЗаказа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ИдПользователя" Type="Int32" Nullable="false" />
+    <Property Name="Сумма" Type="Int32" Nullable="false" />
+    <Property Name="Статус" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="СпособОплаты" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="КомментарийПокупателя" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="НаличиеУслуги" Type="Boolean" Nullable="false" />
+    <Property Name="ДатаЗаказа" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Пользователи" Relationship="Self.FK_Заказы_Пользователи" FromRole="Заказы" ToRole="Пользователи" />
+    <NavigationProperty Name="ТоваровЗаказа" Relationship="Self.FK_ТоваровЗаказа_Заказы" FromRole="Заказы" ToRole="ТоваровЗаказа" />
+  </EntityType>
+  <EntityType Name="Контакты">
+    <Key>
+      <PropertyRef Name="ИдКонтакта" />
+    </Key>
+    <Property Name="ИдКонтакта" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Тип" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Контакт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="НовостиСтатьи">
+    <Key>
+      <PropertyRef Name="ИдНовости" />
+    </Key>
+    <Property Name="ИдНовости" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Заголовок" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Аннотация" Type="String" MaxLength="1050" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Содержание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ОснХарактеристики">
+    <Key>
+      <PropertyRef Name="ИдТовара" />
+    </Key>
+    <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+    <Property Name="Материал" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Покрытие" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Каркас" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Цвет" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ТипДвери" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ВнутреннееЗаполнение" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Наполнитель" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Уплотнитель" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ТолщинаМеталла" Type="Int32" />
+    <Property Name="Фурнитура" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Петли" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ОтделкаСнаружи" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ОтделкаВнутри" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ТолщДверногоПлотна" Type="Int32" />
+    <Property Name="ТипоразмерЦилиндра" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ТипКрепежа" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="РекомендуемаяТолщинаДверногоПолотна" Type="Int32" />
+    <Property Name="ТипПланки" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Межосевое" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ДопЗапираниеИзнутри" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Коллекция" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="КлассПрименения" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Основа" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ТолщЗащитногоСлоя" Type="Int32" />
+    <Property Name="ТолщПокрытияОбщая" Type="Int32" />
+    <Property Name="ШиринаРулона" Type="Int32" />
+    <Property Name="КлассИстираемости" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="РазмерПанели" Type="Int32" />
+    <Property Name="КолвоВупаковке" Type="Int32" />
+    <Property Name="ПлощадьПачки" Type="Int32" />
+    <Property Name="Поверхность" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Гарантия" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ТипПокрытия" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ТипЗамковогоСоединения" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="НаличиеФаски" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="ПородаДерева" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Толщина" Type="Int32" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_ОснХарактеристики_Товары" FromRole="ОснХарактеристики" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="ОтзывМагазина">
+    <Key>
+      <PropertyRef Name="ИдОтзываМагазина" />
+    </Key>
+    <Property Name="ИдОтзываМагазина" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ИдПользователя" Type="Int32" />
+    <Property Name="Оценка" Type="Int32" Nullable="false" />
+    <Property Name="Отзыв" Type="String" MaxLength="3550" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ответ" Type="String" MaxLength="1100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Пользователи" Relationship="Self.FK_ОтзывМагазина_Пользователи" FromRole="ОтзывМагазина" ToRole="Пользователи" />
+  </EntityType>
+  <EntityType Name="ОтзывТовара">
+    <Key>
+      <PropertyRef Name="ИдОтзываТовара" />
+    </Key>
+    <Property Name="ИдОтзываТовара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ИдПользователя" Type="Int32" Nullable="false" />
+    <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+    <Property Name="Оценка" Type="Int32" Nullable="false" />
+    <Property Name="Отзыв" Type="String" MaxLength="3550" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Пользователи" Relationship="Self.FK_ОтзывТовара_Пользователи" FromRole="ОтзывТовара" ToRole="Пользователи" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_ОтзывТовара_Товары" FromRole="ОтзывТовара" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="Пользователи">
+    <Key>
+      <PropertyRef Name="ИдПользователя" />
+    </Key>
+    <Property Name="ИдПользователя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Город" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="УлицаДомКв" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Пароль" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ИдРоли" Type="Int32" />
+    <Property Name="ДатаРегистрации" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Пользователи" FromRole="Пользователи" ToRole="Заказы" />
+    <NavigationProperty Name="ОтзывМагазина" Relationship="Self.FK_ОтзывМагазина_Пользователи" FromRole="Пользователи" ToRole="ОтзывМагазина" />
+    <NavigationProperty Name="ОтзывТовара" Relationship="Self.FK_ОтзывТовара_Пользователи" FromRole="Пользователи" ToRole="ОтзывТовара" />
+    <NavigationProperty Name="Роли" Relationship="Self.FK_Пользователи_Роли" FromRole="Пользователи" ToRole="Роли" />
+  </EntityType>
+  <EntityType Name="Роли">
+    <Key>
+      <PropertyRef Name="ИдРоли" />
+    </Key>
+    <Property Name="ИдРоли" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НазваниеРоли" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Пользователи" Relationship="Self.FK_Пользователи_Роли" FromRole="Роли" ToRole="Пользователи" />
+  </EntityType>
+  <EntityType Name="ТоваровЗаказа">
+    <Key>
+      <PropertyRef Name="ИдЗаказа" />
+      <PropertyRef Name="ИдТовара" />
+    </Key>
+    <Property Name="ИдЗаказа" Type="Int32" Nullable="false" />
+    <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+    <Property Name="Количество" Type="Int32" Nullable="false" />
+    <Property Name="ЦенаЗаКоличество" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Заказы" Relationship="Self.FK_ТоваровЗаказа_Заказы" FromRole="ТоваровЗаказа" ToRole="Заказы" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_ТоваровЗаказа_Товары" FromRole="ТоваровЗаказа" ToRole="Товары" />
+  </EntityType>
+  <EntityType Name="Товары">
+    <Key>
+      <PropertyRef Name="ИдТовара" />
+    </Key>
+    <Property Name="ИдТовара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Производитель" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="СтранаПроизводитель" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Категория" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Метка" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Публикация" Type="Boolean" Nullable="false" />
+    <Property Name="Цена" Type="Int32" Nullable="false" />
+    <Property Name="Скидка" Type="Int32" />
+    <Property Name="ЦенаСоСкидкой" Type="Int32" />
+    <NavigationProperty Name="ДопХарактеристики" Relationship="Self.FK_ДопХарактеристики_Товары" FromRole="Товары" ToRole="ДопХарактеристики" />
+    <NavigationProperty Name="ОснХарактеристики" Relationship="Self.FK_ОснХарактеристики_Товары" FromRole="Товары" ToRole="ОснХарактеристики" />
+    <NavigationProperty Name="ОтзывТовара" Relationship="Self.FK_ОтзывТовара_Товары" FromRole="Товары" ToRole="ОтзывТовара" />
+    <NavigationProperty Name="ТоваровЗаказа" Relationship="Self.FK_ТоваровЗаказа_Товары" FromRole="Товары" ToRole="ТоваровЗаказа" />
+    <NavigationProperty Name="ФотоТовара" Relationship="Self.FK_ФотоТовара_Товары" FromRole="Товары" ToRole="ФотоТовара" />
+  </EntityType>
+  <EntityType Name="Услуги">
+    <Key>
+      <PropertyRef Name="ИдУслуги" />
+    </Key>
+    <Property Name="ИдУслуги" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Название" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Описание" Type="String" MaxLength="1050" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Цена" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ФотоТовара">
+    <Key>
+      <PropertyRef Name="ИдФото" />
+    </Key>
+    <Property Name="ИдФото" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+    <Property Name="ТипИзображения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Изображение" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Товары" Relationship="Self.FK_ФотоТовара_Товары" FromRole="ФотоТовара" ToRole="Товары" />
+  </EntityType>
+  <Association Name="FK_ДопХарактеристики_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ДопХарактеристики" Type="Self.ДопХарактеристики" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ИдТовара" />
+      </Principal>
+      <Dependent Role="ДопХарактеристики">
+        <PropertyRef Name="ИдТовара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказы_Пользователи">
+    <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Пользователи">
+        <PropertyRef Name="ИдПользователя" />
+      </Principal>
+      <Dependent Role="Заказы">
+        <PropertyRef Name="ИдПользователя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ТоваровЗаказа_Заказы">
+    <End Role="Заказы" Type="Self.Заказы" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ТоваровЗаказа" Type="Self.ТоваровЗаказа" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Заказы">
+        <PropertyRef Name="ИдЗаказа" />
+      </Principal>
+      <Dependent Role="ТоваровЗаказа">
+        <PropertyRef Name="ИдЗаказа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ОснХарактеристики_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ОснХарактеристики" Type="Self.ОснХарактеристики" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ИдТовара" />
+      </Principal>
+      <Dependent Role="ОснХарактеристики">
+        <PropertyRef Name="ИдТовара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ОтзывМагазина_Пользователи">
+    <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="0..1" />
+    <End Role="ОтзывМагазина" Type="Self.ОтзывМагазина" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Пользователи">
+        <PropertyRef Name="ИдПользователя" />
+      </Principal>
+      <Dependent Role="ОтзывМагазина">
+        <PropertyRef Name="ИдПользователя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ОтзывТовара_Пользователи">
+    <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ОтзывТовара" Type="Self.ОтзывТовара" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Пользователи">
+        <PropertyRef Name="ИдПользователя" />
+      </Principal>
+      <Dependent Role="ОтзывТовара">
+        <PropertyRef Name="ИдПользователя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ОтзывТовара_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ОтзывТовара" Type="Self.ОтзывТовара" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ИдТовара" />
+      </Principal>
+      <Dependent Role="ОтзывТовара">
+        <PropertyRef Name="ИдТовара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Пользователи_Роли">
+    <End Role="Роли" Type="Self.Роли" Multiplicity="0..1" />
+    <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Роли">
+        <PropertyRef Name="ИдРоли" />
+      </Principal>
+      <Dependent Role="Пользователи">
+        <PropertyRef Name="ИдРоли" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ТоваровЗаказа_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="1" />
+    <End Role="ТоваровЗаказа" Type="Self.ТоваровЗаказа" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ИдТовара" />
+      </Principal>
+      <Dependent Role="ТоваровЗаказа">
+        <PropertyRef Name="ИдТовара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ФотоТовара_Товары">
+    <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ФотоТовара" Type="Self.ФотоТовара" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товары">
+        <PropertyRef Name="ИдТовара" />
+      </Principal>
+      <Dependent Role="ФотоТовара">
+        <PropertyRef Name="ИдТовара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="evrostroydbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ДопИнформация" EntityType="Self.ДопИнформация" />
+    <EntitySet Name="ДопХарактеристики" EntityType="Self.ДопХарактеристики" />
+    <EntitySet Name="Заказы" EntityType="Self.Заказы" />
+    <EntitySet Name="Контакты" EntityType="Self.Контакты" />
+    <EntitySet Name="НовостиСтатьи" EntityType="Self.НовостиСтатьи" />
+    <EntitySet Name="ОснХарактеристики" EntityType="Self.ОснХарактеристики" />
+    <EntitySet Name="ОтзывМагазина" EntityType="Self.ОтзывМагазина" />
+    <EntitySet Name="ОтзывТовара" EntityType="Self.ОтзывТовара" />
+    <EntitySet Name="Пользователи" EntityType="Self.Пользователи" />
+    <EntitySet Name="Роли" EntityType="Self.Роли" />
+    <EntitySet Name="ТоваровЗаказа" EntityType="Self.ТоваровЗаказа" />
+    <EntitySet Name="Товары" EntityType="Self.Товары" />
+    <EntitySet Name="Услуги" EntityType="Self.Услуги" />
+    <EntitySet Name="ФотоТовара" EntityType="Self.ФотоТовара" />
+    <AssociationSet Name="FK_ДопХарактеристики_Товары" Association="Self.FK_ДопХарактеристики_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="ДопХарактеристики" EntitySet="ДопХарактеристики" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказы_Пользователи" Association="Self.FK_Заказы_Пользователи">
+      <End Role="Пользователи" EntitySet="Пользователи" />
+      <End Role="Заказы" EntitySet="Заказы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ТоваровЗаказа_Заказы" Association="Self.FK_ТоваровЗаказа_Заказы">
+      <End Role="Заказы" EntitySet="Заказы" />
+      <End Role="ТоваровЗаказа" EntitySet="ТоваровЗаказа" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ОснХарактеристики_Товары" Association="Self.FK_ОснХарактеристики_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="ОснХарактеристики" EntitySet="ОснХарактеристики" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ОтзывМагазина_Пользователи" Association="Self.FK_ОтзывМагазина_Пользователи">
+      <End Role="Пользователи" EntitySet="Пользователи" />
+      <End Role="ОтзывМагазина" EntitySet="ОтзывМагазина" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ОтзывТовара_Пользователи" Association="Self.FK_ОтзывТовара_Пользователи">
+      <End Role="Пользователи" EntitySet="Пользователи" />
+      <End Role="ОтзывТовара" EntitySet="ОтзывТовара" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ОтзывТовара_Товары" Association="Self.FK_ОтзывТовара_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="ОтзывТовара" EntitySet="ОтзывТовара" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Пользователи_Роли" Association="Self.FK_Пользователи_Роли">
+      <End Role="Роли" EntitySet="Роли" />
+      <End Role="Пользователи" EntitySet="Пользователи" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ТоваровЗаказа_Товары" Association="Self.FK_ТоваровЗаказа_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="ТоваровЗаказа" EntitySet="ТоваровЗаказа" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ФотоТовара_Товары" Association="Self.FK_ФотоТовара_Товары">
+      <End Role="Товары" EntitySet="Товары" />
+      <End Role="ФотоТовара" EntitySet="ФотоТовара" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

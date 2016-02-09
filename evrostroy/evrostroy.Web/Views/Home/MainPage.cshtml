@@ -1,0 +1,25 @@
+﻿@using evrostroy.Domain;
+@model IEnumerable<Пользователи>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Имя</td>
+        <td>Телефон</td>
+        <td>Email</td>
+        <td>Город</td>
+    </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+            <td>@i.ИдПользователя</td>
+            <td>@i.Имя</td>
+            <td>@i.Телефон</td>
+            <td>@i.Email</td>
+            <td>@i.Город</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,1013 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="evrostroydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ДопИнформация">
+          <Key>
+            <PropertyRef Name="ИдДопИнформации" />
+          </Key>
+          <Property Name="ИдДопИнформации" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Доставка" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Оплата" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Омагазине" Type="nvarchar" MaxLength="2500" />
+        </EntityType>
+        <EntityType Name="ДопХарактеристики">
+          <Key>
+            <PropertyRef Name="ИдДопХарактеристики" />
+          </Key>
+          <Property Name="ИдДопХарактеристики" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИдТовара" Type="int" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Значение" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Заказы">
+          <Key>
+            <PropertyRef Name="ИдЗаказа" />
+          </Key>
+          <Property Name="ИдЗаказа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИдПользователя" Type="int" Nullable="false" />
+          <Property Name="Сумма" Type="int" Nullable="false" />
+          <Property Name="Статус" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="СпособОплаты" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="КомментарийПокупателя" Type="nvarchar" MaxLength="1500" />
+          <Property Name="НаличиеУслуги" Type="bit" Nullable="false" />
+          <Property Name="ДатаЗаказа" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Контакты">
+          <Key>
+            <PropertyRef Name="ИдКонтакта" />
+          </Key>
+          <Property Name="ИдКонтакта" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Тип" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Контакт" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="НовостиСтатьи">
+          <Key>
+            <PropertyRef Name="ИдНовости" />
+          </Key>
+          <Property Name="ИдНовости" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Заголовок" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Аннотация" Type="nvarchar" MaxLength="1050" Nullable="false" />
+          <Property Name="Содержание" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ОснХарактеристики">
+          <Key>
+            <PropertyRef Name="ИдТовара" />
+          </Key>
+          <Property Name="ИдТовара" Type="int" Nullable="false" />
+          <Property Name="Материал" Type="nvarchar" MaxLength="450" />
+          <Property Name="Покрытие" Type="nvarchar" MaxLength="450" />
+          <Property Name="Каркас" Type="nvarchar" MaxLength="450" />
+          <Property Name="Цвет" Type="nvarchar" MaxLength="250" />
+          <Property Name="ТипДвери" Type="nvarchar" MaxLength="450" />
+          <Property Name="ВнутреннееЗаполнение" Type="nvarchar" MaxLength="450" />
+          <Property Name="Наполнитель" Type="nvarchar" MaxLength="450" />
+          <Property Name="Уплотнитель" Type="nvarchar" MaxLength="450" />
+          <Property Name="ТолщинаМеталла" Type="int" />
+          <Property Name="Фурнитура" Type="nvarchar" MaxLength="450" />
+          <Property Name="Петли" Type="nvarchar" MaxLength="450" />
+          <Property Name="ОтделкаСнаружи" Type="nvarchar" MaxLength="450" />
+          <Property Name="ОтделкаВнутри" Type="nvarchar" MaxLength="450" />
+          <Property Name="ТолщДверногоПлотна" Type="int" />
+          <Property Name="ТипоразмерЦилиндра" Type="nvarchar" MaxLength="450" />
+          <Property Name="ТипКрепежа" Type="nvarchar" MaxLength="450" />
+          <Property Name="РекомендуемаяТолщинаДверногоПолотна" Type="int" />
+          <Property Name="ТипПланки" Type="nvarchar" MaxLength="450" />
+          <Property Name="Межосевое" Type="nvarchar" MaxLength="450" />
+          <Property Name="ДопЗапираниеИзнутри" Type="nvarchar" MaxLength="450" />
+          <Property Name="Коллекция" Type="nvarchar" MaxLength="450" />
+          <Property Name="КлассПрименения" Type="nvarchar" MaxLength="450" />
+          <Property Name="Основа" Type="nvarchar" MaxLength="450" />
+          <Property Name="ТолщЗащитногоСлоя" Type="int" />
+          <Property Name="ТолщПокрытияОбщая" Type="int" />
+          <Property Name="ШиринаРулона" Type="int" />
+          <Property Name="КлассИстираемости" Type="nvarchar" MaxLength="450" />
+          <Property Name="РазмерПанели" Type="int" />
+          <Property Name="КолвоВупаковке" Type="int" />
+          <Property Name="ПлощадьПачки" Type="int" />
+          <Property Name="Поверхность" Type="nvarchar" MaxLength="450" />
+          <Property Name="Гарантия" Type="nvarchar" MaxLength="450" />
+          <Property Name="ТипПокрытия" Type="nvarchar" MaxLength="450" />
+          <Property Name="ТипЗамковогоСоединения" Type="nvarchar" MaxLength="450" />
+          <Property Name="НаличиеФаски" Type="nvarchar" MaxLength="450" />
+          <Property Name="ПородаДерева" Type="nvarchar" MaxLength="450" />
+          <Property Name="Толщина" Type="int" />
+        </EntityType>
+        <EntityType Name="ОтзывМагазина">
+          <Key>
+            <PropertyRef Name="ИдОтзываМагазина" />
+          </Key>
+          <Property Name="ИдОтзываМагазина" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИдПользователя" Type="int" />
+          <Property Name="Оценка" Type="int" Nullable="false" />
+          <Property Name="Отзыв" Type="nvarchar" MaxLength="3550" Nullable="false" />
+          <Property Name="Ответ" Type="nchar" MaxLength="1100" />
+        </EntityType>
+        <EntityType Name="ОтзывТовара">
+          <Key>
+            <PropertyRef Name="ИдОтзываТовара" />
+          </Key>
+          <Property Name="ИдОтзываТовара" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИдПользователя" Type="int" Nullable="false" />
+          <Property Name="ИдТовара" Type="int" Nullable="false" />
+          <Property Name="Оценка" Type="int" Nullable="false" />
+          <Property Name="Отзыв" Type="nvarchar" MaxLength="3550" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Пользователи">
+          <Key>
+            <PropertyRef Name="ИдПользователя" />
+          </Key>
+          <Property Name="ИдПользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Телефон" Type="nchar" MaxLength="15" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="Город" Type="nvarchar" MaxLength="50" />
+          <Property Name="УлицаДомКв" Type="nvarchar" MaxLength="150" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="15" />
+          <Property Name="ИдРоли" Type="int" />
+          <Property Name="ДатаРегистрации" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Роли">
+          <Key>
+            <PropertyRef Name="ИдРоли" />
+          </Key>
+          <Property Name="ИдРоли" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="НазваниеРоли" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ТоваровЗаказа">
+          <Key>
+            <PropertyRef Name="ИдЗаказа" />
+            <PropertyRef Name="ИдТовара" />
+          </Key>
+          <Property Name="ИдЗаказа" Type="int" Nullable="false" />
+          <Property Name="ИдТовара" Type="int" Nullable="false" />
+          <Property Name="Количество" Type="int" Nullable="false" />
+          <Property Name="ЦенаЗаКоличество" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Товары">
+          <Key>
+            <PropertyRef Name="ИдТовара" />
+          </Key>
+          <Property Name="ИдТовара" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Производитель" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="СтранаПроизводитель" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Категория" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Метка" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Публикация" Type="bit" Nullable="false" />
+          <Property Name="Цена" Type="int" Nullable="false" />
+          <Property Name="Скидка" Type="int" />
+          <Property Name="ЦенаСоСкидкой" Type="int" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="ИдУслуги" />
+          </Key>
+          <Property Name="ИдУслуги" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Описание" Type="nvarchar" MaxLength="1050" Nullable="false" />
+          <Property Name="Цена" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ФотоТовара">
+          <Key>
+            <PropertyRef Name="ИдФото" />
+          </Key>
+          <Property Name="ИдФото" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИдТовара" Type="int" Nullable="false" />
+          <Property Name="ТипИзображения" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Изображение" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ДопХарактеристики_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ДопХарактеристики" Type="Self.ДопХарактеристики" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ДопХарактеристики">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Заказы_Пользователи">
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пользователи">
+              <PropertyRef Name="ИдПользователя" />
+            </Principal>
+            <Dependent Role="Заказы">
+              <PropertyRef Name="ИдПользователя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОснХарактеристики_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ОснХарактеристики" Type="Self.ОснХарактеристики" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ОснХарактеристики">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОтзывМагазина_Пользователи">
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="0..1" />
+          <End Role="ОтзывМагазина" Type="Self.ОтзывМагазина" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пользователи">
+              <PropertyRef Name="ИдПользователя" />
+            </Principal>
+            <Dependent Role="ОтзывМагазина">
+              <PropertyRef Name="ИдПользователя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОтзывТовара_Пользователи">
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ОтзывТовара" Type="Self.ОтзывТовара" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пользователи">
+              <PropertyRef Name="ИдПользователя" />
+            </Principal>
+            <Dependent Role="ОтзывТовара">
+              <PropertyRef Name="ИдПользователя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОтзывТовара_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ОтзывТовара" Type="Self.ОтзывТовара" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ОтзывТовара">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Пользователи_Роли">
+          <End Role="Роли" Type="Self.Роли" Multiplicity="0..1" />
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Роли">
+              <PropertyRef Name="ИдРоли" />
+            </Principal>
+            <Dependent Role="Пользователи">
+              <PropertyRef Name="ИдРоли" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ТоваровЗаказа_Заказы">
+          <End Role="Заказы" Type="Self.Заказы" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ТоваровЗаказа" Type="Self.ТоваровЗаказа" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Заказы">
+              <PropertyRef Name="ИдЗаказа" />
+            </Principal>
+            <Dependent Role="ТоваровЗаказа">
+              <PropertyRef Name="ИдЗаказа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ТоваровЗаказа_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1" />
+          <End Role="ТоваровЗаказа" Type="Self.ТоваровЗаказа" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ТоваровЗаказа">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ФотоТовара_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ФотоТовара" Type="Self.ФотоТовара" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ФотоТовара">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="evrostroydbModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ДопИнформация" EntityType="Self.ДопИнформация" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ДопХарактеристики" EntityType="Self.ДопХарактеристики" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Заказы" EntityType="Self.Заказы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Контакты" EntityType="Self.Контакты" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="НовостиСтатьи" EntityType="Self.НовостиСтатьи" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ОснХарактеристики" EntityType="Self.ОснХарактеристики" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ОтзывМагазина" EntityType="Self.ОтзывМагазина" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ОтзывТовара" EntityType="Self.ОтзывТовара" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Пользователи" EntityType="Self.Пользователи" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Роли" EntityType="Self.Роли" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ТоваровЗаказа" EntityType="Self.ТоваровЗаказа" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Товары" EntityType="Self.Товары" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Услуги" EntityType="Self.Услуги" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ФотоТовара" EntityType="Self.ФотоТовара" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ДопХарактеристики_Товары" Association="Self.FK_ДопХарактеристики_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ДопХарактеристики" EntitySet="ДопХарактеристики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Заказы_Пользователи" Association="Self.FK_Заказы_Пользователи">
+            <End Role="Пользователи" EntitySet="Пользователи" />
+            <End Role="Заказы" EntitySet="Заказы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОснХарактеристики_Товары" Association="Self.FK_ОснХарактеристики_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ОснХарактеристики" EntitySet="ОснХарактеристики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОтзывМагазина_Пользователи" Association="Self.FK_ОтзывМагазина_Пользователи">
+            <End Role="Пользователи" EntitySet="Пользователи" />
+            <End Role="ОтзывМагазина" EntitySet="ОтзывМагазина" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОтзывТовара_Пользователи" Association="Self.FK_ОтзывТовара_Пользователи">
+            <End Role="Пользователи" EntitySet="Пользователи" />
+            <End Role="ОтзывТовара" EntitySet="ОтзывТовара" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОтзывТовара_Товары" Association="Self.FK_ОтзывТовара_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ОтзывТовара" EntitySet="ОтзывТовара" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Пользователи_Роли" Association="Self.FK_Пользователи_Роли">
+            <End Role="Роли" EntitySet="Роли" />
+            <End Role="Пользователи" EntitySet="Пользователи" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ТоваровЗаказа_Заказы" Association="Self.FK_ТоваровЗаказа_Заказы">
+            <End Role="Заказы" EntitySet="Заказы" />
+            <End Role="ТоваровЗаказа" EntitySet="ТоваровЗаказа" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ТоваровЗаказа_Товары" Association="Self.FK_ТоваровЗаказа_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ТоваровЗаказа" EntitySet="ТоваровЗаказа" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ФотоТовара_Товары" Association="Self.FK_ФотоТовара_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ФотоТовара" EntitySet="ФотоТовара" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="evrostroydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ДопИнформация">
+          <Key>
+            <PropertyRef Name="ИдДопИнформации" />
+          </Key>
+          <Property Name="ИдДопИнформации" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Доставка" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="Оплата" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="Омагазине" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ДопХарактеристики">
+          <Key>
+            <PropertyRef Name="ИдДопХарактеристики" />
+          </Key>
+          <Property Name="ИдДопХарактеристики" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Значение" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Товары" Relationship="Self.FK_ДопХарактеристики_Товары" FromRole="ДопХарактеристики" ToRole="Товары" />
+        </EntityType>
+        <EntityType Name="Заказы">
+          <Key>
+            <PropertyRef Name="ИдЗаказа" />
+          </Key>
+          <Property Name="ИдЗаказа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИдПользователя" Type="Int32" Nullable="false" />
+          <Property Name="Сумма" Type="Int32" Nullable="false" />
+          <Property Name="Статус" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="СпособОплаты" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="КомментарийПокупателя" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="НаличиеУслуги" Type="Boolean" Nullable="false" />
+          <Property Name="ДатаЗаказа" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Пользователи" Relationship="Self.FK_Заказы_Пользователи" FromRole="Заказы" ToRole="Пользователи" />
+          <NavigationProperty Name="ТоваровЗаказа" Relationship="Self.FK_ТоваровЗаказа_Заказы" FromRole="Заказы" ToRole="ТоваровЗаказа" />
+        </EntityType>
+        <EntityType Name="Контакты">
+          <Key>
+            <PropertyRef Name="ИдКонтакта" />
+          </Key>
+          <Property Name="ИдКонтакта" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Тип" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Контакт" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="НовостиСтатьи">
+          <Key>
+            <PropertyRef Name="ИдНовости" />
+          </Key>
+          <Property Name="ИдНовости" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Заголовок" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Аннотация" Type="String" MaxLength="1050" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Содержание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ОснХарактеристики">
+          <Key>
+            <PropertyRef Name="ИдТовара" />
+          </Key>
+          <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+          <Property Name="Материал" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Покрытие" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Каркас" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Цвет" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ТипДвери" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ВнутреннееЗаполнение" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Наполнитель" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Уплотнитель" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ТолщинаМеталла" Type="Int32" />
+          <Property Name="Фурнитура" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Петли" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ОтделкаСнаружи" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ОтделкаВнутри" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ТолщДверногоПлотна" Type="Int32" />
+          <Property Name="ТипоразмерЦилиндра" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ТипКрепежа" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="РекомендуемаяТолщинаДверногоПолотна" Type="Int32" />
+          <Property Name="ТипПланки" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Межосевое" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ДопЗапираниеИзнутри" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Коллекция" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="КлассПрименения" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Основа" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ТолщЗащитногоСлоя" Type="Int32" />
+          <Property Name="ТолщПокрытияОбщая" Type="Int32" />
+          <Property Name="ШиринаРулона" Type="Int32" />
+          <Property Name="КлассИстираемости" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="РазмерПанели" Type="Int32" />
+          <Property Name="КолвоВупаковке" Type="Int32" />
+          <Property Name="ПлощадьПачки" Type="Int32" />
+          <Property Name="Поверхность" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Гарантия" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ТипПокрытия" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ТипЗамковогоСоединения" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="НаличиеФаски" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ПородаДерева" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Толщина" Type="Int32" />
+          <NavigationProperty Name="Товары" Relationship="Self.FK_ОснХарактеристики_Товары" FromRole="ОснХарактеристики" ToRole="Товары" />
+        </EntityType>
+        <EntityType Name="ОтзывМагазина">
+          <Key>
+            <PropertyRef Name="ИдОтзываМагазина" />
+          </Key>
+          <Property Name="ИдОтзываМагазина" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИдПользователя" Type="Int32" />
+          <Property Name="Оценка" Type="Int32" Nullable="false" />
+          <Property Name="Отзыв" Type="String" MaxLength="3550" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ответ" Type="String" MaxLength="1100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Пользователи" Relationship="Self.FK_ОтзывМагазина_Пользователи" FromRole="ОтзывМагазина" ToRole="Пользователи" />
+        </EntityType>
+        <EntityType Name="ОтзывТовара">
+          <Key>
+            <PropertyRef Name="ИдОтзываТовара" />
+          </Key>
+          <Property Name="ИдОтзываТовара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИдПользователя" Type="Int32" Nullable="false" />
+          <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+          <Property Name="Оценка" Type="Int32" Nullable="false" />
+          <Property Name="Отзыв" Type="String" MaxLength="3550" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Пользователи" Relationship="Self.FK_ОтзывТовара_Пользователи" FromRole="ОтзывТовара" ToRole="Пользователи" />
+          <NavigationProperty Name="Товары" Relationship="Self.FK_ОтзывТовара_Товары" FromRole="ОтзывТовара" ToRole="Товары" />
+        </EntityType>
+        <EntityType Name="Пользователи">
+          <Key>
+            <PropertyRef Name="ИдПользователя" />
+          </Key>
+          <Property Name="ИдПользователя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Город" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="УлицаДомКв" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Пароль" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ИдРоли" Type="Int32" />
+          <Property Name="ДатаРегистрации" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Пользователи" FromRole="Пользователи" ToRole="Заказы" />
+          <NavigationProperty Name="ОтзывМагазина" Relationship="Self.FK_ОтзывМагазина_Пользователи" FromRole="Пользователи" ToRole="ОтзывМагазина" />
+          <NavigationProperty Name="ОтзывТовара" Relationship="Self.FK_ОтзывТовара_Пользователи" FromRole="Пользователи" ToRole="ОтзывТовара" />
+          <NavigationProperty Name="Роли" Relationship="Self.FK_Пользователи_Роли" FromRole="Пользователи" ToRole="Роли" />
+        </EntityType>
+        <EntityType Name="Роли">
+          <Key>
+            <PropertyRef Name="ИдРоли" />
+          </Key>
+          <Property Name="ИдРоли" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="НазваниеРоли" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Пользователи" Relationship="Self.FK_Пользователи_Роли" FromRole="Роли" ToRole="Пользователи" />
+        </EntityType>
+        <EntityType Name="ТоваровЗаказа">
+          <Key>
+            <PropertyRef Name="ИдЗаказа" />
+            <PropertyRef Name="ИдТовара" />
+          </Key>
+          <Property Name="ИдЗаказа" Type="Int32" Nullable="false" />
+          <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+          <Property Name="Количество" Type="Int32" Nullable="false" />
+          <Property Name="ЦенаЗаКоличество" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Заказы" Relationship="Self.FK_ТоваровЗаказа_Заказы" FromRole="ТоваровЗаказа" ToRole="Заказы" />
+          <NavigationProperty Name="Товары" Relationship="Self.FK_ТоваровЗаказа_Товары" FromRole="ТоваровЗаказа" ToRole="Товары" />
+        </EntityType>
+        <EntityType Name="Товары">
+          <Key>
+            <PropertyRef Name="ИдТовара" />
+          </Key>
+          <Property Name="ИдТовара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Производитель" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="СтранаПроизводитель" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Категория" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Метка" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Публикация" Type="Boolean" Nullable="false" />
+          <Property Name="Цена" Type="Int32" Nullable="false" />
+          <Property Name="Скидка" Type="Int32" />
+          <Property Name="ЦенаСоСкидкой" Type="Int32" />
+          <NavigationProperty Name="ДопХарактеристики" Relationship="Self.FK_ДопХарактеристики_Товары" FromRole="Товары" ToRole="ДопХарактеристики" />
+          <NavigationProperty Name="ОснХарактеристики" Relationship="Self.FK_ОснХарактеристики_Товары" FromRole="Товары" ToRole="ОснХарактеристики" />
+          <NavigationProperty Name="ОтзывТовара" Relationship="Self.FK_ОтзывТовара_Товары" FromRole="Товары" ToRole="ОтзывТовара" />
+          <NavigationProperty Name="ТоваровЗаказа" Relationship="Self.FK_ТоваровЗаказа_Товары" FromRole="Товары" ToRole="ТоваровЗаказа" />
+          <NavigationProperty Name="ФотоТовара" Relationship="Self.FK_ФотоТовара_Товары" FromRole="Товары" ToRole="ФотоТовара" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="ИдУслуги" />
+          </Key>
+          <Property Name="ИдУслуги" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Описание" Type="String" MaxLength="1050" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Цена" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ФотоТовара">
+          <Key>
+            <PropertyRef Name="ИдФото" />
+          </Key>
+          <Property Name="ИдФото" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИдТовара" Type="Int32" Nullable="false" />
+          <Property Name="ТипИзображения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Изображение" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Товары" Relationship="Self.FK_ФотоТовара_Товары" FromRole="ФотоТовара" ToRole="Товары" />
+        </EntityType>
+        <Association Name="FK_ДопХарактеристики_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ДопХарактеристики" Type="Self.ДопХарактеристики" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ДопХарактеристики">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Заказы_Пользователи">
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пользователи">
+              <PropertyRef Name="ИдПользователя" />
+            </Principal>
+            <Dependent Role="Заказы">
+              <PropertyRef Name="ИдПользователя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ТоваровЗаказа_Заказы">
+          <End Role="Заказы" Type="Self.Заказы" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ТоваровЗаказа" Type="Self.ТоваровЗаказа" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Заказы">
+              <PropertyRef Name="ИдЗаказа" />
+            </Principal>
+            <Dependent Role="ТоваровЗаказа">
+              <PropertyRef Name="ИдЗаказа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОснХарактеристики_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ОснХарактеристики" Type="Self.ОснХарактеристики" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ОснХарактеристики">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОтзывМагазина_Пользователи">
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="0..1" />
+          <End Role="ОтзывМагазина" Type="Self.ОтзывМагазина" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пользователи">
+              <PropertyRef Name="ИдПользователя" />
+            </Principal>
+            <Dependent Role="ОтзывМагазина">
+              <PropertyRef Name="ИдПользователя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОтзывТовара_Пользователи">
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ОтзывТовара" Type="Self.ОтзывТовара" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пользователи">
+              <PropertyRef Name="ИдПользователя" />
+            </Principal>
+            <Dependent Role="ОтзывТовара">
+              <PropertyRef Name="ИдПользователя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ОтзывТовара_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ОтзывТовара" Type="Self.ОтзывТовара" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ОтзывТовара">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Пользователи_Роли">
+          <End Role="Роли" Type="Self.Роли" Multiplicity="0..1" />
+          <End Role="Пользователи" Type="Self.Пользователи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Роли">
+              <PropertyRef Name="ИдРоли" />
+            </Principal>
+            <Dependent Role="Пользователи">
+              <PropertyRef Name="ИдРоли" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ТоваровЗаказа_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1" />
+          <End Role="ТоваровЗаказа" Type="Self.ТоваровЗаказа" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ТоваровЗаказа">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ФотоТовара_Товары">
+          <End Role="Товары" Type="Self.Товары" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ФотоТовара" Type="Self.ФотоТовара" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Товары">
+              <PropertyRef Name="ИдТовара" />
+            </Principal>
+            <Dependent Role="ФотоТовара">
+              <PropertyRef Name="ИдТовара" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="evrostroydbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ДопИнформация" EntityType="Self.ДопИнформация" />
+          <EntitySet Name="ДопХарактеристики" EntityType="Self.ДопХарактеристики" />
+          <EntitySet Name="Заказы" EntityType="Self.Заказы" />
+          <EntitySet Name="Контакты" EntityType="Self.Контакты" />
+          <EntitySet Name="НовостиСтатьи" EntityType="Self.НовостиСтатьи" />
+          <EntitySet Name="ОснХарактеристики" EntityType="Self.ОснХарактеристики" />
+          <EntitySet Name="ОтзывМагазина" EntityType="Self.ОтзывМагазина" />
+          <EntitySet Name="ОтзывТовара" EntityType="Self.ОтзывТовара" />
+          <EntitySet Name="Пользователи" EntityType="Self.Пользователи" />
+          <EntitySet Name="Роли" EntityType="Self.Роли" />
+          <EntitySet Name="ТоваровЗаказа" EntityType="Self.ТоваровЗаказа" />
+          <EntitySet Name="Товары" EntityType="Self.Товары" />
+          <EntitySet Name="Услуги" EntityType="Self.Услуги" />
+          <EntitySet Name="ФотоТовара" EntityType="Self.ФотоТовара" />
+          <AssociationSet Name="FK_ДопХарактеристики_Товары" Association="Self.FK_ДопХарактеристики_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ДопХарактеристики" EntitySet="ДопХарактеристики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Заказы_Пользователи" Association="Self.FK_Заказы_Пользователи">
+            <End Role="Пользователи" EntitySet="Пользователи" />
+            <End Role="Заказы" EntitySet="Заказы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ТоваровЗаказа_Заказы" Association="Self.FK_ТоваровЗаказа_Заказы">
+            <End Role="Заказы" EntitySet="Заказы" />
+            <End Role="ТоваровЗаказа" EntitySet="ТоваровЗаказа" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОснХарактеристики_Товары" Association="Self.FK_ОснХарактеристики_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ОснХарактеристики" EntitySet="ОснХарактеристики" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОтзывМагазина_Пользователи" Association="Self.FK_ОтзывМагазина_Пользователи">
+            <End Role="Пользователи" EntitySet="Пользователи" />
+            <End Role="ОтзывМагазина" EntitySet="ОтзывМагазина" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОтзывТовара_Пользователи" Association="Self.FK_ОтзывТовара_Пользователи">
+            <End Role="Пользователи" EntitySet="Пользователи" />
+            <End Role="ОтзывТовара" EntitySet="ОтзывТовара" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ОтзывТовара_Товары" Association="Self.FK_ОтзывТовара_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ОтзывТовара" EntitySet="ОтзывТовара" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Пользователи_Роли" Association="Self.FK_Пользователи_Роли">
+            <End Role="Роли" EntitySet="Роли" />
+            <End Role="Пользователи" EntitySet="Пользователи" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ТоваровЗаказа_Товары" Association="Self.FK_ТоваровЗаказа_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ТоваровЗаказа" EntitySet="ТоваровЗаказа" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ФотоТовара_Товары" Association="Self.FK_ФотоТовара_Товары">
+            <End Role="Товары" EntitySet="Товары" />
+            <End Role="ФотоТовара" EntitySet="ФотоТовара" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="evrostroydbModelStoreContainer" CdmEntityContainer="evrostroydbEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="evrostroydbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ДопИнформация">
+            <EntityTypeMapping TypeName="evrostroydbModel.ДопИнформация">
+              <MappingFragment StoreEntitySet="ДопИнформация">
+                <ScalarProperty Name="ИдДопИнформации" ColumnName="ИдДопИнформации" />
+                <ScalarProperty Name="Доставка" ColumnName="Доставка" />
+                <ScalarProperty Name="Оплата" ColumnName="Оплата" />
+                <ScalarProperty Name="Омагазине" ColumnName="Омагазине" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ДопХарактеристики">
+            <EntityTypeMapping TypeName="evrostroydbModel.ДопХарактеристики">
+              <MappingFragment StoreEntitySet="ДопХарактеристики">
+                <ScalarProperty Name="ИдДопХарактеристики" ColumnName="ИдДопХарактеристики" />
+                <ScalarProperty Name="ИдТовара" ColumnName="ИдТовара" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Значение" ColumnName="Значение" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Заказы">
+            <EntityTypeMapping TypeName="evrostroydbModel.Заказы">
+              <MappingFragment StoreEntitySet="Заказы">
+                <ScalarProperty Name="ИдЗаказа" ColumnName="ИдЗаказа" />
+                <ScalarProperty Name="ИдПользователя" ColumnName="ИдПользователя" />
+                <ScalarProperty Name="Сумма" ColumnName="Сумма" />
+                <ScalarProperty Name="Статус" ColumnName="Статус" />
+                <ScalarProperty Name="СпособОплаты" ColumnName="СпособОплаты" />
+                <ScalarProperty Name="КомментарийПокупателя" ColumnName="КомментарийПокупателя" />
+                <ScalarProperty Name="НаличиеУслуги" ColumnName="НаличиеУслуги" />
+                <ScalarProperty Name="ДатаЗаказа" ColumnName="ДатаЗаказа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Контакты">
+            <EntityTypeMapping TypeName="evrostroydbModel.Контакты">
+              <MappingFragment StoreEntitySet="Контакты">
+                <ScalarProperty Name="ИдКонтакта" ColumnName="ИдКонтакта" />
+                <ScalarProperty Name="Тип" ColumnName="Тип" />
+                <ScalarProperty Name="Контакт" ColumnName="Контакт" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="НовостиСтатьи">
+            <EntityTypeMapping TypeName="evrostroydbModel.НовостиСтатьи">
+              <MappingFragment StoreEntitySet="НовостиСтатьи">
+                <ScalarProperty Name="ИдНовости" ColumnName="ИдНовости" />
+                <ScalarProperty Name="Заголовок" ColumnName="Заголовок" />
+                <ScalarProperty Name="Аннотация" ColumnName="Аннотация" />
+                <ScalarProperty Name="Содержание" ColumnName="Содержание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ОснХарактеристики">
+            <EntityTypeMapping TypeName="evrostroydbModel.ОснХарактеристики">
+              <MappingFragment StoreEntitySet="ОснХарактеристики">
+                <ScalarProperty Name="ИдТовара" ColumnName="ИдТовара" />
+                <ScalarProperty Name="Материал" ColumnName="Материал" />
+                <ScalarProperty Name="Покрытие" ColumnName="Покрытие" />
+                <ScalarProperty Name="Каркас" ColumnName="Каркас" />
+                <ScalarProperty Name="Цвет" ColumnName="Цвет" />
+                <ScalarProperty Name="ТипДвери" ColumnName="ТипДвери" />
+                <ScalarProperty Name="ВнутреннееЗаполнение" ColumnName="ВнутреннееЗаполнение" />
+                <ScalarProperty Name="Наполнитель" ColumnName="Наполнитель" />
+                <ScalarProperty Name="Уплотнитель" ColumnName="Уплотнитель" />
+                <ScalarProperty Name="ТолщинаМеталла" ColumnName="ТолщинаМеталла" />
+                <ScalarProperty Name="Фурнитура" ColumnName="Фурнитура" />
+                <ScalarProperty Name="Петли" ColumnName="Петли" />
+                <ScalarProperty Name="ОтделкаСнаружи" ColumnName="ОтделкаСнаружи" />
+                <ScalarProperty Name="ОтделкаВнутри" ColumnName="ОтделкаВнутри" />
+                <ScalarProperty Name="ТолщДверногоПлотна" ColumnName="ТолщДверногоПлотна" />
+                <ScalarProperty Name="ТипоразмерЦилиндра" ColumnName="ТипоразмерЦилиндра" />
+                <ScalarProperty Name="ТипКрепежа" ColumnName="ТипКрепежа" />
+                <ScalarProperty Name="РекомендуемаяТолщинаДверногоПолотна" ColumnName="РекомендуемаяТолщинаДверногоПолотна" />
+                <ScalarProperty Name="ТипПланки" ColumnName="ТипПланки" />
+                <ScalarProperty Name="Межосевое" ColumnName="Межосевое" />
+                <ScalarProperty Name="ДопЗапираниеИзнутри" ColumnName="ДопЗапираниеИзнутри" />
+                <ScalarProperty Name="Коллекция" ColumnName="Коллекция" />
+                <ScalarProperty Name="КлассПрименения" ColumnName="КлассПрименения" />
+                <ScalarProperty Name="Основа" ColumnName="Основа" />
+                <ScalarProperty Name="ТолщЗащитногоСлоя" ColumnName="ТолщЗащитногоСлоя" />
+                <ScalarProperty Name="ТолщПокрытияОбщая" ColumnName="ТолщПокрытияОбщая" />
+                <ScalarProperty Name="ШиринаРулона" ColumnName="ШиринаРулона" />
+                <ScalarProperty Name="КлассИстираемости" ColumnName="КлассИстираемости" />
+                <ScalarProperty Name="РазмерПанели" ColumnName="РазмерПанели" />
+                <ScalarProperty Name="КолвоВупаковке" ColumnName="КолвоВупаковке" />
+                <ScalarProperty Name="ПлощадьПачки" ColumnName="ПлощадьПачки" />
+                <ScalarProperty Name="Поверхность" ColumnName="Поверхность" />
+                <ScalarProperty Name="Гарантия" ColumnName="Гарантия" />
+                <ScalarProperty Name="ТипПокрытия" ColumnName="ТипПокрытия" />
+                <ScalarProperty Name="ТипЗамковогоСоединения" ColumnName="ТипЗамковогоСоединения" />
+                <ScalarProperty Name="НаличиеФаски" ColumnName="НаличиеФаски" />
+                <ScalarProperty Name="ПородаДерева" ColumnName="ПородаДерева" />
+                <ScalarProperty Name="Толщина" ColumnName="Толщина" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ОтзывМагазина">
+            <EntityTypeMapping TypeName="evrostroydbModel.ОтзывМагазина">
+              <MappingFragment StoreEntitySet="ОтзывМагазина">
+                <ScalarProperty Name="ИдОтзываМагазина" ColumnName="ИдОтзываМагазина" />
+                <ScalarProperty Name="ИдПользователя" ColumnName="ИдПользователя" />
+                <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+                <ScalarProperty Name="Отзыв" ColumnName="Отзыв" />
+                <ScalarProperty Name="Ответ" ColumnName="Ответ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ОтзывТовара">
+            <EntityTypeMapping TypeName="evrostroydbModel.ОтзывТовара">
+              <MappingFragment StoreEntitySet="ОтзывТовара">
+                <ScalarProperty Name="ИдОтзываТовара" ColumnName="ИдОтзываТовара" />
+                <ScalarProperty Name="ИдПользователя" ColumnName="ИдПользователя" />
+                <ScalarProperty Name="ИдТовара" ColumnName="ИдТовара" />
+                <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+                <ScalarProperty Name="Отзыв" ColumnName="Отзыв" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Пользователи">
+            <EntityTypeMapping TypeName="evrostroydbModel.Пользователи">
+              <MappingFragment StoreEntitySet="Пользователи">
+                <ScalarProperty Name="ИдПользователя" ColumnName="ИдПользователя" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Город" ColumnName="Город" />
+                <ScalarProperty Name="УлицаДомКв" ColumnName="УлицаДомКв" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+                <ScalarProperty Name="ИдРоли" ColumnName="ИдРоли" />
+                <ScalarProperty Name="ДатаРегистрации" ColumnName="ДатаРегистрации" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Роли">
+            <EntityTypeMapping TypeName="evrostroydbModel.Роли">
+              <MappingFragment StoreEntitySet="Роли">
+                <ScalarProperty Name="ИдРоли" ColumnName="ИдРоли" />
+                <ScalarProperty Name="НазваниеРоли" ColumnName="НазваниеРоли" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ТоваровЗаказа">
+            <EntityTypeMapping TypeName="evrostroydbModel.ТоваровЗаказа">
+              <MappingFragment StoreEntitySet="ТоваровЗаказа">
+                <ScalarProperty Name="ИдЗаказа" ColumnName="ИдЗаказа" />
+                <ScalarProperty Name="ИдТовара" ColumnName="ИдТовара" />
+                <ScalarProperty Name="Количество" ColumnName="Количество" />
+                <ScalarProperty Name="ЦенаЗаКоличество" ColumnName="ЦенаЗаКоличество" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Товары">
+            <EntityTypeMapping TypeName="evrostroydbModel.Товары">
+              <MappingFragment StoreEntitySet="Товары">
+                <ScalarProperty Name="ИдТовара" ColumnName="ИдТовара" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Производитель" ColumnName="Производитель" />
+                <ScalarProperty Name="СтранаПроизводитель" ColumnName="СтранаПроизводитель" />
+                <ScalarProperty Name="Категория" ColumnName="Категория" />
+                <ScalarProperty Name="Метка" ColumnName="Метка" />
+                <ScalarProperty Name="Публикация" ColumnName="Публикация" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+                <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+                <ScalarProperty Name="ЦенаСоСкидкой" ColumnName="ЦенаСоСкидкой" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Услуги">
+            <EntityTypeMapping TypeName="evrostroydbModel.Услуги">
+              <MappingFragment StoreEntitySet="Услуги">
+                <ScalarProperty Name="ИдУслуги" ColumnName="ИдУслуги" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Описание" ColumnName="Описание" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ФотоТовара">
+            <EntityTypeMapping TypeName="evrostroydbModel.ФотоТовара">
+              <MappingFragment StoreEntitySet="ФотоТовара">
+                <ScalarProperty Name="ИдФото" ColumnName="ИдФото" />
+                <ScalarProperty Name="ИдТовара" ColumnName="ИдТовара" />
+                <ScalarProperty Name="ТипИзображения" ColumnName="ТипИзображения" />
+                <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
