@@ -27,7 +27,7 @@ namespace evrostroy.Domain.Implementations
             SaveRole(role);
         }
 
-        public void CreateUser(int id, string name, string phone, string email, string city, string street, string password, int idrole)
+        public void CreateUser(int id, string name, string phone, string email, string city, string street, string password, int idrole, DateTime tim)
         {
             Пользователи user = new Пользователи()
             {
@@ -39,7 +39,7 @@ namespace evrostroy.Domain.Implementations
                 УлицаДомКв = street,
                 Пароль = password,
                 ИдРоли = idrole,
-                ДатаРегистрации = DateTime.Now
+                ДатаРегистрации = tim
             };
             SaveUser(user);
         }

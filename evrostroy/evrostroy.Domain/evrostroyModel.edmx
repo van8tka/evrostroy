@@ -37,7 +37,7 @@
           <Key>
             <PropertyRef Name="ИдЗаказа" />
           </Key>
-          <Property Name="ИдЗаказа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ИдЗаказа" Type="int" Nullable="false" />
           <Property Name="ИдПользователя" Type="int" Nullable="false" />
           <Property Name="Сумма" Type="int" Nullable="false" />
           <Property Name="Статус" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -131,14 +131,14 @@
             <PropertyRef Name="ИдПользователя" />
           </Key>
           <Property Name="ИдПользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Телефон" Type="nchar" MaxLength="15" />
-          <Property Name="Email" Type="nchar" MaxLength="50" />
-          <Property Name="Город" Type="nvarchar" MaxLength="50" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Город" Type="nvarchar" MaxLength="150" />
           <Property Name="УлицаДомКв" Type="nvarchar" MaxLength="150" />
-          <Property Name="Пароль" Type="nvarchar" MaxLength="15" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="30" />
           <Property Name="ИдРоли" Type="int" />
-          <Property Name="ДатаРегистрации" Type="datetime" />
+          <Property Name="ДатаРегистрации" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Роли">
           <Key>
@@ -419,7 +419,7 @@
           <Key>
             <PropertyRef Name="ИдЗаказа" />
           </Key>
-          <Property Name="ИдЗаказа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ИдЗаказа" Type="Int32" Nullable="false" />
           <Property Name="ИдПользователя" Type="Int32" Nullable="false" />
           <Property Name="Сумма" Type="Int32" Nullable="false" />
           <Property Name="Статус" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -519,14 +519,14 @@
             <PropertyRef Name="ИдПользователя" />
           </Key>
           <Property Name="ИдПользователя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Телефон" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Город" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Город" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="УлицаДомКв" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Пароль" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Пароль" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="ИдРоли" Type="Int32" />
-          <Property Name="ДатаРегистрации" Type="DateTime" Precision="3" />
+          <Property Name="ДатаРегистрации" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Пользователи" FromRole="Пользователи" ToRole="Заказы" />
           <NavigationProperty Name="ОтзывМагазина" Relationship="Self.FK_ОтзывМагазина_Пользователи" FromRole="Пользователи" ToRole="ОтзывМагазина" />
           <NavigationProperty Name="ОтзывТовара" Relationship="Self.FK_ОтзывТовара_Пользователи" FromRole="Пользователи" ToRole="ОтзывТовара" />

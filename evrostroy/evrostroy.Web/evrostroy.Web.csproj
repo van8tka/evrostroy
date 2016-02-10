@@ -178,6 +178,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,6 +229,10 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\Enter.cshtml" />
     <Content Include="Views\Shared\Cart.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Exception.cshtml" />
+    <Content Include="Views\Account\ThanksForRegister.cshtml" />
+    <Content Include="Views\Catalog\Price.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,7 +13,7 @@ namespace evrostroy.Domain.Interfaces
 
         Пользователи GetUser(string name);
         Роли GetRole(string role);
-        void CreateUser(int id, string name, string phone, string email, string city, string street, string password, int idrole);
+        void CreateUser(int id, string name, string phone, string email, string city, string street, string password, int idrole, DateTime tim);
         void DeleteUser(Пользователи user);
         void SaveUser(Пользователи user);
         void CreateRole(int id, string name);

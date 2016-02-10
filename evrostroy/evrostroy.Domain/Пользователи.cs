@@ -30,7 +30,7 @@ namespace evrostroy.Domain
         public string УлицаДомКв { get; set; }
         public string Пароль { get; set; }
         public Nullable<int> ИдРоли { get; set; }
-        public Nullable<System.DateTime> ДатаРегистрации { get; set; }
+        public System.DateTime ДатаРегистрации { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }

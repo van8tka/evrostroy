@@ -11,6 +11,15 @@ namespace evrostroy.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private string SystemEmail = "systememail11@mail.ru";
+        private string Passwword = "qazWSX123";
+
+        private DataManager dataManager;
+        public AccountController(DataManager dataManager)
+        {
+            this.dataManager = dataManager;
+        }
+
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
@@ -21,6 +30,7 @@ namespace evrostroy.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
+            ViewBag.Rest = false;
             if (ModelState.IsValid)
             {
                 string g = "i";
@@ -31,7 +41,8 @@ namespace evrostroy.Web.Controllers
                 }
                 if (us != null)
                 {
-                    FormsAuthentication.SetAuthCookie(us.Имя, true);
+                    FormsAuthentication.SetAuthCookie(us.Email, true);
+                    Session["ИмяТекущегоПользователя"] = us.Имя;
                     if (returnUrl != "/")
                     {
                         return RedirectToLocal(returnUrl);
@@ -43,6 +54,7 @@ namespace evrostroy.Web.Controllers
                 }
                 else
                 {
+                    ViewBag.Rest = true;
                     ModelState.AddModelError("NameIn", "Пользователя с таким логином и паролем нет или не правильно введен логин и пароль");
                 }
             }
@@ -55,21 +67,36 @@ namespace evrostroy.Web.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("MainPage", "Home");
         }
+
+        //регистрация
         [HttpGet]
-        public ActionResult Register()
+        public ActionResult Register(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(RegisterModel model, string returnUrl)
         {
-            if(ModelState.IsValid)
+            int idroledefault = 2;//покупатель                      
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("MainPage", "Home");
+                DateTime nowtime = DateTime.Now;
+                try
+                {
+                  dataManager.UsersRepository.CreateUser(1, model.NameUs, model.PhoneUs, model.EmailUs, model.CityUs, model.StreetUs, model.PasswordUs,idroledefault,nowtime);
+                    FormsAuthentication.SetAuthCookie(model.EmailUs, true);
+                    Session["ИмяТекущегоПользователя"] = model.NameUs;
+                    return RedirectToAction("ThanksForRegister");
+                }
+                catch
+                {
+                    return RedirectToAction("Exception");
+                }
+                    
             }
             return View(model);
         }
-
 
         //Метод возврата на страницу с которой перешли на авторизацию
         private ActionResult RedirectToLocal(string returnUrl)
@@ -81,5 +108,27 @@ namespace evrostroy.Web.Controllers
             return RedirectToAction("MainPage", "Home");
         }
 
+        //восстановление пароля
+        [HttpGet]
+        public ActionResult RestorePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RestorePassword(string email)
+        {
+            return View();
+        }
+
+        //спасибо за регистрацию
+        public ActionResult ThanksForRegister()
+        {
+            return View();
+        }
+        //ошибка
+        public ActionResult Exception()
+        {
+            return View();
+        }
     }
 }

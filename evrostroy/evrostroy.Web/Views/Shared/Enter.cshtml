@@ -3,19 +3,16 @@
 {
     <div class="navbar-text">
         <div>
-            @*определение имени пользователя сохраненного в куки в accountcontroller*@
-            Привет, @HttpContext.Current.User.Identity.Name!
+                 Здравствуйте, @Session["ИмяТекущегоПользователя"]
         </div>
         @Html.ActionLink("Выход", "Logout", "Account")
     </div>
 }
 else
 {
-    <div class="navbar-text">
-      
+    <div class="navbar-text">   
             @Html.ActionLink("Вход/", "Login", "Account")
-            @Html.ActionLink("Регистрация", "Registration", "Account")
-      
+            @Html.ActionLink("Регистрация", "Register", "Account")      
     </div>
 }
 

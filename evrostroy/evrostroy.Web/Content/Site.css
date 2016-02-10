@@ -104,7 +104,9 @@ textarea {
 .flr{
     float:right;
 }
-
+.flc{
+text-align:center;
+}
 
 
 

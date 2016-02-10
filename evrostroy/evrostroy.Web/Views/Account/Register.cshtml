@@ -1,0 +1,72 @@
+﻿@model evrostroy.Web.Models.RegisterModel
+@{
+    ViewBag.Title = "Вход";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel mt30">
+    <div class="panel-heading  flc">
+        <h3>Регистрация нового пользователя.</h3>
+    </div>
+    <div class="panel-body">
+        <div class="flc">
+        <p class="lead">Заполните все поля, для продолжения обслуживания на сайте.</p>
+    </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-lg-6">
+
+
+                    @Html.ValidationMessageFor(m => m.NameUs)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.NameUs)
+                        @Html.TextBoxFor(m => m.NameUs, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.PhoneUs)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneUs)
+                        @Html.TextBoxFor(m => m.PhoneUs, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.EmailUs)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailUs)
+                        @Html.TextBoxFor(m => m.EmailUs, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.PasswordUs)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PasswordUs)
+                        @Html.PasswordFor(m => m.PasswordUs, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.ConfPassword)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfPassword)
+                        @Html.PasswordFor(m => m.ConfPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+              
+                    <div class="col-lg-6">
+                        <fieldset>
+                            <legend style="font-size:small">Адрес будет использоваться как адрес доставки</legend>
+                            @Html.ValidationMessageFor(m => m.CityUs)
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CityUs)
+                                @Html.TextBoxFor(m => m.CityUs, new { @class = "form-control" })
+                            </div>
+
+                            @Html.ValidationMessageFor(m => m.StreetUs)
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.StreetUs)
+                                @Html.TextBoxFor(m => m.StreetUs, new { @class = "form-control" })
+                            </div>
+                        </fieldset>
+</div>
+                
+                </div>
+                <input type="submit" value="Подтвердить регистрацию" class="btn btn-primary" />
+                }
+          
+      </div>
+</div>

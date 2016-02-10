@@ -30,7 +30,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Главная", "MainPage", "Home")</li>
-                    <li>@Html.ActionLink("Каталог", "About", "Home")</li>
+                    <li>@Html.ActionLink("Каталог", "Price", "Catalog")</li>
                     <li>@Html.ActionLink("Доставка", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Оплата", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Уценка", "Contact", "Home")</li>
@@ -38,10 +38,20 @@
                     <li>@Html.ActionLink("О магазине", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Отзывы", "Contact", "Home")</li>
                 </ul>
-            </div>
+            </div>     
         </div>
     </div>
-    <div class="container body-content mt50">
+    <div class="navbar navbar-left fll col-lg-2" style="height:auto;padding-top:8em;border-style:dotted;z-index:100;position:absolute;">
+        <p>Каталог:</p> <br />
+        <p>Каталог:</p> <br />
+        <p>Каталог:</p> <br />
+        <p>Каталог:</p> <br />
+        <p>Каталог:</p> <br />
+        <p>Каталог:</p> <br />
+    </div>
+ 
+    <div class="container body-content mt60" style="margin-left:18vw;">
+      
         @RenderBody()
         <hr />
         <footer>
