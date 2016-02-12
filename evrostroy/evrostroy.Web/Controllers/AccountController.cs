@@ -11,9 +11,6 @@ namespace evrostroy.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private string SystemEmail = "systememail11@mail.ru";
-        private string Passwword = "qazWSX123";
-
         private DataManager dataManager;
         public AccountController(DataManager dataManager)
         {
@@ -30,35 +27,44 @@ namespace evrostroy.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
+            LogImplemetation.ClassLog.Write("Попытка входа "+ model.NameIn);
             ViewBag.Rest = false;
-            if (ModelState.IsValid)
-            {
-                string g = "i";
-                Пользователи us = null;
-                using (evrostroydbEntities context = new evrostroydbEntities())
+            try { 
+                if (ModelState.IsValid)
                 {
-                    us = context.Пользователи.FirstOrDefault(u => u.Email == model.NameIn && u.Пароль == model.PasswordIn);
-                }
-                if (us != null)
-                {
-                    FormsAuthentication.SetAuthCookie(us.Email, true);
-                    Session["ИмяТекущегоПользователя"] = us.Имя;
-                    if (returnUrl != "/")
+                    string g = "i";
+                    Пользователи us = null;
+                    using (evrostroydbEntities context = new evrostroydbEntities())
                     {
-                        return RedirectToLocal(returnUrl);
+                        us = context.Пользователи.FirstOrDefault(u => u.Email == model.NameIn && u.Пароль == model.PasswordIn);
+                    }
+                    if (us != null)
+                    {
+                        FormsAuthentication.SetAuthCookie(us.Email, true);
+                        Session["ИмяТекущегоПользователя"] = us.Имя;
+                        if (returnUrl != "/")
+                        {
+                            return RedirectToLocal(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("MainPage", "Home");
+                        }
                     }
                     else
                     {
-                        return RedirectToAction("MainPage", "Home");
+                        ViewBag.Rest = true;
+                        ModelState.AddModelError("NameIn", "Пользователя с таким логином и паролем нет или не правильно введен логин и пароль");
                     }
                 }
-                else
-                {
-                    ViewBag.Rest = true;
-                    ModelState.AddModelError("NameIn", "Пользователя с таким логином и паролем нет или не правильно введен логин и пароль");
-                }
+                return View(model);
             }
-            return View(model);
+            catch(Exception er)
+            {
+                LogImplemetation.ClassLog.Write("Ошибка при входе AccountController\\Login: "+ er);
+                return RedirectToAction("Exception");
+            }
+            
         }
 
         //метод выхода
@@ -78,22 +84,36 @@ namespace evrostroy.Web.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model, string returnUrl)
         {
-            int idroledefault = 2;//покупатель                      
-            if (ModelState.IsValid)
+            int idroledefault = 2;//покупатель    
+            LogImplemetation.ClassLog.Write("Попытка регистрации нового пользователя " + model.NameUs + " "+model.EmailUs);
+            ViewBag.Rest =false;
+            Пользователи g = dataManager.UsersRepository.GetUsers().Where(x => x.Email == model.EmailUs).FirstOrDefault();
+            //проверка на наличие такого пользователя в базе данных(если нет то регистрируем иначе оповеаем что есть и предлогаем восстановить пароль(нов пароль отправим по email))
+            if (g==null)
             {
-                DateTime nowtime = DateTime.Now;
-                try
-                {
-                  dataManager.UsersRepository.CreateUser(1, model.NameUs, model.PhoneUs, model.EmailUs, model.CityUs, model.StreetUs, model.PasswordUs,idroledefault,nowtime);
-                    FormsAuthentication.SetAuthCookie(model.EmailUs, true);
-                    Session["ИмяТекущегоПользователя"] = model.NameUs;
-                    return RedirectToAction("ThanksForRegister");
-                }
-                catch
-                {
-                    return RedirectToAction("Exception");
-                }
-                    
+                if (ModelState.IsValid)
+                     {
+                        DateTime nowtime = DateTime.Now;
+                        try
+                        {
+                            dataManager.UsersRepository.CreateUser(1, model.NameUs, model.PhoneUs, model.EmailUs, model.CityUs, model.StreetUs, model.PasswordUs, idroledefault, nowtime);
+                            FormsAuthentication.SetAuthCookie(model.EmailUs, true);
+                            Session["ИмяТекущегоПользователя"] = model.NameUs;//для отображения на экране
+                        //метод отправки сообщения на email о регистрации
+                            SendMessage.SendMsg.Message("Поздравляем Вас " + model.NameUs + ", Вы зарегистрировались в интернет магазине ЛюксЕвроСтрой", "Регитрация в интернет магазине ЛюксЕвроСтрой", model.EmailUs);
+                            return RedirectToAction("ThanksForRegister", "Account", new { returnUrl });
+                        }
+                        catch (Exception er)
+                        {
+                            LogImplemetation.ClassLog.Write("Ошибка при регистрации AccountController\\Register:" + er);
+                            return RedirectToAction("Exception");
+                        }
+                 }
+            }
+            else
+            {
+                ViewBag.Rest = true;
+                ModelState.AddModelError("EmailUs", "Пользователь с таким email адресом уже существует.");
             }
             return View(model);
         }
@@ -115,20 +135,82 @@ namespace evrostroy.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult RestorePassword(string email)
+        public ActionResult RestorePassword(NewpasswordModel model)
         {
-            return View();
+            try
+            {
+                LogImplemetation.ClassLog.Write("Восстановление пароля " + model.EmailUs);
+
+                Пользователи g = dataManager.UsersRepository.GetUserByEmail(model.EmailUs);
+                //проверка на наличие такого пользователя в базе данных(если нет то регистрируем иначе оповеаем что есть и предлогаем восстановить пароль(нов пароль отправим по email))
+                if (g != null)
+                {
+                    //генератор паролей
+
+                    if (ModelState.IsValid)
+                    {
+                        string password = GetPassword();
+
+                        dataManager.UsersRepository.CreateUser(g.ИдПользователя, g.Имя,g.Телефон,g.Email,g.Город,g.УлицаДомКв,password,(int)g.ИдРоли,g.ДатаРегистрации);
+
+                        SendMessage.SendMsg.Message("Новый пароль для входа на сайт: " + password, "Восстановление пароля", model.EmailUs);
+                        return RedirectToAction("NewPasswordSend");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("EmailUs", "Пользователя с таким email адресом не существует.");
+                }
+
+                return View(model);
+            }
+             catch(Exception er)
+            {
+                LogImplemetation.ClassLog.Write("Ошибка при восстановлении пароля AccountController\\RestorePassword: " + er);
+                return RedirectToAction("Exception");
+            }
+        }
+        //метод генерации пароля
+        private static string GetPassword(int i=10)
+        {
+            string password = "";
+            var r = new Random(); ;
+            while(password.Length<=i)
+            {
+                Char c = (Char)r.Next(33, 125);
+                if(Char.IsLetterOrDigit(c))
+                {
+                    password += c;
+                }
+            }
+            return password;
         }
 
+
+
         //спасибо за регистрацию
-        public ActionResult ThanksForRegister()
+        [HttpGet]
+        public ActionResult ThanksForRegister(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        [HttpPost]
+        public ActionResult ThanksForRegister(string returnUrl, int id=0)
+        {
+            return RedirectToLocal(returnUrl);
+        }
+
         //ошибка
         public ActionResult Exception()
         {
             return View();
         }
+        //ошибка
+        public ActionResult NewPasswordSend()
+        {
+            return View();
+        }
+
     }
 }

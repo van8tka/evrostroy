@@ -1,0 +1,148 @@
+[12.02.2016 18:10:52.402] Попытка регистрации нового пользователя Иволга van8tka@tut.by
+[12.02.2016 18:10:52.622] Создание сообщения для отправки
+[12.02.2016 18:12:32.879] Ошибка при создании и отправки сообщения: System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at evrostroy.Web.SendMessage.SendMsg.Message(String Body, String Them, String adresKlient) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\SendMessage\SendMsg.cs:line 44
+[12.02.2016 18:18:36.269] Попытка регистрации нового пользователя Пидро van8tka@tut.by
+[12.02.2016 18:18:45.786] Попытка регистрации нового пользователя Пидро van8tka@tut.by
+[12.02.2016 18:18:46.016] Создание сообщения для отправки
+[12.02.2016 18:27:48.534] Попытка входа samrk
+[12.02.2016 18:35:14.389] Попытка регистрации нового пользователя Павол teryje
+[12.02.2016 19:11:27.777] Попытка регистрации нового пользователя Иван van8tka@tut.by
+[12.02.2016 19:15:18.077] Попытка регистрации нового пользователя Ваня van8tka@tut.by
+[12.02.2016 19:15:33.849] Попытка регистрации нового пользователя Ваня van8tka@tut.by
+[12.02.2016 19:19:11.383] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:20:10.124] Попытка регистрации нового пользователя костя 1van8tka@tut.by
+[12.02.2016 19:23:31.503] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:24:38.961] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:25:06.795] Попытка регистрации нового пользователя ERt 1van8tka@tut.by
+[12.02.2016 19:31:50.356] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:32:03.840] Попытка регистрации нового пользователя  1van8tka@tut.by
+[12.02.2016 19:35:30.042] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:38:55.421] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:40:09.900] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:40:40.931] Попытка регистрации нового пользователя  11van8tka@tut.by
+[12.02.2016 19:53:29.743] Попытка регистрации нового пользователя  11va@erte.tu
+[12.02.2016 19:57:44.600] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 19:58:23.260] Попытка регистрации нового пользователя  123van8tka@tut.by
+[12.02.2016 19:59:16.990] Попытка регистрации нового пользователя Иван 123van8tka@tut.by
+[12.02.2016 19:59:33.528] Создание сообщения для отправки
+[12.02.2016 21:02:12.306] Попытка входа 
+[12.02.2016 21:02:24.579] Попытка входа dbnrt
+[12.02.2016 21:02:36.596] Попытка входа Выук"егеют"
+[12.02.2016 21:02:51.306] Попытка входа tester@tut.by
+[12.02.2016 21:03:40.123] Восстановление пароля van8tka@tut.by
+[12.02.2016 21:09:05.308] Попытка регистрации нового пользователя  van8tka@tut.by
+[12.02.2016 21:10:12.066] Восстановление пароля van8tka@tut.by
+[12.02.2016 21:10:16.494] Восстановление пароля van8tka@tut.by
+[12.02.2016 21:11:10.530] Восстановление пароля van8tka@tut.by
+[12.02.2016 21:16:34.844] Попытка входа van8tka@tut.by
+[12.02.2016 21:16:46.178] Восстановление пароля 11van8tka@tut.by
+[12.02.2016 21:16:56.846] Восстановление пароля van8tka@tut.by
+[12.02.2016 21:16:56.854] Создание сообщения для отправки
+[12.02.2016 22:12:25.320] Попытка входа vae@tytu.com
+[12.02.2016 22:12:37.028] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:13:14.449] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:13:38.467] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:14:10.059] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:16:56.547] Попытка входа terp@try.by
+[12.02.2016 22:17:06.045] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:19:11.990] Создание сообщения для отправки
+[12.02.2016 22:20:46.965] Попытка входа va@tr.com
+[12.02.2016 22:20:59.914] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:20:59.964] Создание сообщения для отправки
+[12.02.2016 22:23:35.813] Попытка входа seaf@wsef.er
+[12.02.2016 22:23:44.013] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:23:44.199] Ошибка при восстановлении пароля AccountController\RestorePassword: System.InvalidOperationException: Attaching an entity of type 'evrostroy.Domain.Пользователи' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at evrostroy.Domain.Implementations.EfUsersRepository.SaveUser(Пользователи user) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 94
+   at evrostroy.Domain.Implementations.EfUsersRepository.CreateUser(Int32 id, String name, String phone, String email, String city, String street, String password, Int32 idrole, DateTime tim) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 49
+   at evrostroy.Web.Controllers.AccountController.RestorePassword(NewpasswordModel model) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\AccountController.cs:line 154
+[12.02.2016 22:30:48.573] Попытка входа qwe@we.er
+[12.02.2016 22:31:01.016] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:31:01.255] Ошибка при восстановлении пароля AccountController\RestorePassword: System.InvalidOperationException: Attaching an entity of type 'evrostroy.Domain.Пользователи' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.DbSet`1.Attach(TEntity entity)
+   at evrostroy.Domain.Implementations.EfUsersRepository.SaveUser(Пользователи user) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 94
+   at evrostroy.Domain.Implementations.EfUsersRepository.CreateUser(Int32 id, String name, String phone, String email, String city, String street, String password, Int32 idrole, DateTime tim) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 49
+   at evrostroy.Web.Controllers.AccountController.RestorePassword(NewpasswordModel model) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\AccountController.cs:line 154
+[12.02.2016 22:35:27.702] Попытка входа sefwef@wer.rt
+[12.02.2016 22:35:41.291] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:35:41.355] Создание сообщения для отправки
+[12.02.2016 22:44:04.946] Попытка входа dwef@tyu.by
+[12.02.2016 22:44:18.854] Восстановление пароля van8tka@tut.by
+[12.02.2016 22:44:19.052] Ошибка при восстановлении пароля AccountController\RestorePassword: System.InvalidOperationException: Attaching an entity of type 'evrostroy.Domain.Пользователи' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.DbSet`1.Attach(TEntity entity)
+   at evrostroy.Domain.Implementations.EfUsersRepository.SaveUser(Пользователи user) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 99
+   at evrostroy.Domain.Implementations.EfUsersRepository.CreateUser(Int32 id, String name, String phone, String email, String city, String street, String password, Int32 idrole, DateTime tim) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 49
+   at evrostroy.Web.Controllers.AccountController.RestorePassword(NewpasswordModel model) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\AccountController.cs:line 154
+[12.02.2016 22:52:38.163] Попытка входа ыуaaef@ERG.RY
+[12.02.2016 22:52:52.044] Попытка входа aaef@ERG.RY
+[12.02.2016 22:53:02.160] Восстановление пароля VAN8TKA@TUT.BY
+[12.02.2016 22:53:49.003] Создание сообщения для отправки
+[12.02.2016 22:55:48.004] Попытка входа WERY@YRT.VB
+[12.02.2016 22:56:03.127] Восстановление пароля VAN8TKA@TUT.BY
+[12.02.2016 22:56:03.352] Создание сообщения для отправки
+[12.02.2016 22:57:15.927] Попытка входа van8tka@tut.by
+[12.02.2016 23:00:31.132] Попытка входа argak'g@hfhg.by
+[12.02.2016 23:00:36.329] Попытка входа argakg@hfhg.by
+[12.02.2016 23:00:38.766] Попытка входа argakg@hfhg.by
+[12.02.2016 23:00:51.072] Восстановление пароля van8tka@tut.by
+[12.02.2016 23:00:51.274] Ошибка при восстановлении пароля AccountController\RestorePassword: System.InvalidOperationException: Attaching an entity of type 'evrostroy.Domain.Пользователи' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.DbSet`1.Attach(TEntity entity)
+   at evrostroy.Domain.Implementations.EfUsersRepository.SaveUser(Пользователи user) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 98
+   at evrostroy.Domain.Implementations.EfUsersRepository.CreateUser(Int32 id, String name, String phone, String email, String city, String street, String password, Int32 idrole, DateTime tim) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 49
+   at evrostroy.Web.Controllers.AccountController.RestorePassword(NewpasswordModel model) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\AccountController.cs:line 154
+[12.02.2016 23:02:15.037] Попытка входа arega@hfh.bdg
+[12.02.2016 23:02:33.567] Восстановление пароля van8tka@tut.by
+[12.02.2016 23:02:33.778] Ошибка при восстановлении пароля AccountController\RestorePassword: System.InvalidOperationException: Attaching an entity of type 'evrostroy.Domain.Пользователи' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at evrostroy.Domain.Implementations.EfUsersRepository.SaveUser(Пользователи user) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 100
+   at evrostroy.Domain.Implementations.EfUsersRepository.CreateUser(Int32 id, String name, String phone, String email, String city, String street, String password, Int32 idrole, DateTime tim) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 49
+   at evrostroy.Web.Controllers.AccountController.RestorePassword(NewpasswordModel model) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\AccountController.cs:line 154
+[12.02.2016 23:04:13.406] Попытка входа aefwefwfw@rert.bv
+[12.02.2016 23:04:32.290] Восстановление пароля van8tka@tut.by
+[12.02.2016 23:04:32.574] Ошибка при восстановлении пароля AccountController\RestorePassword: System.InvalidOperationException: Attaching an entity of type 'evrostroy.Domain.Пользователи' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at evrostroy.Domain.Implementations.EfUsersRepository.SaveUser(Пользователи user) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 100
+   at evrostroy.Domain.Implementations.EfUsersRepository.CreateUser(Int32 id, String name, String phone, String email, String city, String street, String password, Int32 idrole, DateTime tim) in D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\Implementations\EfUsersRepository.cs:line 49
+   at evrostroy.Web.Controllers.AccountController.RestorePassword(NewpasswordModel model) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\AccountController.cs:line 154
+[12.02.2016 23:06:22.043] Попытка входа asfwe@sefwef.sfe
+[12.02.2016 23:06:34.479] Восстановление пароля van8tka@tut.by
+[12.02.2016 23:06:34.692] Создание сообщения для отправки
+[12.02.2016 23:11:23.055] Попытка входа sdba@efew.nfh
+[12.02.2016 23:11:38.410] Восстановление пароля van8tka@tut.by
+[12.02.2016 23:11:38.548] Создание сообщения для отправки
+[12.02.2016 23:12:29.848] Попытка входа van8tka@tut.by

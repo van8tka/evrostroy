@@ -16,6 +16,11 @@ namespace evrostroy.Domain.Implementations
             this.context = context;
         }
 
+       public Пользователи GetUserByEmail(string email)
+        {
+            return context.Пользователи.Where(x => x.Email == email).FirstOrDefault();
+        }
+
         public void CreateRole(int id, string name)
         {
             Роли role = new Роли()
@@ -84,7 +89,25 @@ namespace evrostroy.Domain.Implementations
 
         public void SaveUser(Пользователи user)
         {
-            context.Пользователи.Add(user);
+            if(user.ИдПользователя!=1)
+            {
+                Пользователи olduser = context.Пользователи.Single(x => x.ИдПользователя == user.ИдПользователя);
+                context.Пользователи.Attach(olduser);
+                olduser.Имя = user.Имя;
+                olduser.Телефон = user.Телефон;
+                olduser.Email = user.Email;
+                olduser.Город = user.Город;
+                olduser.УлицаДомКв = user.УлицаДомКв;
+                olduser.ИдРоли = user.ИдРоли;
+                olduser.ДатаРегистрации = user.ДатаРегистрации;
+                olduser.Пароль = user.Пароль;
+                context.Entry(olduser).State = System.Data.Entity.EntityState.Modified;
+              
+            }
+            else
+            {
+                context.Пользователи.Add(user);
+            }           
             context.SaveChanges();
         }
     }

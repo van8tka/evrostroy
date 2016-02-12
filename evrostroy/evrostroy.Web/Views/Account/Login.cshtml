@@ -6,9 +6,7 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 
 <div class="panel mt30">
-    @*<div class="panel-heading">
-        <h3>Вход на сайт.</h3>
-    </div>*@
+   
     <div class="panel-body">
         <p class="lead">Введите имя пользователя и пароль, для получения полного доступа.</p>
      @using (Html.BeginForm())
@@ -26,9 +24,9 @@
                 <label>Пароль:</label>
                 @Html.PasswordFor(m => m.PasswordIn, new { @class = "form-control" })
             </div>
-            <input type="submit" value="Войти" class="btn btn-primary" />
+            <input type="submit" value="Войти" class="btn btn-primary" /><br/>
             @*<a class="btn btn-primary" href="/Account/Register" new {returnUrl=VieBag.ReturnUrl}>Зарегистрироваться</a>*@
-             @Html.ActionLink("Зарегистрироваться", "Register", "Account", new {returnUrl = ViewBag.ReturnUrl}, null)
+             @Html.ActionLink("Зарегистрироваться", "Register", "Account", new {returnUrl = ViewBag.ReturnUrl}, new {@class= "btn btn-default" })
              if (ViewBag.Rest == true)
              {
                     @Html.ActionLink("Восстановить пароль", "RestorePassword", "Account", new { @class = "btn btn-default" })

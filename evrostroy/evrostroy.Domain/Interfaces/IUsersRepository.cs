@@ -10,7 +10,7 @@ namespace evrostroy.Domain.Interfaces
     {
         IEnumerable<Пользователи> GetUsers();
         IEnumerable<Роли> GetRoles();
-
+        Пользователи GetUserByEmail(string email);
         Пользователи GetUser(string name);
         Роли GetRole(string role);
         void CreateUser(int id, string name, string phone, string email, string city, string street, string password, int idrole, DateTime tim);

@@ -3,9 +3,10 @@
     ViewBag.Title = "ThanksForRegister";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("ThanksForRegister","Account", new {returnUrl = ViewBag.ReturnUrl}))
+{
 <div class="flc">
     <h2>Спасибо, что зарегистрировались на нашем сайте!</h2><br/>
-
-       <a class="btn btn-primary" href="/Home/MainPage"> Продолжить покупки</a>
-
+    <input type="submit" value="Продолжить покупки" class="btn btn-primary" />
 </div>
+}

@@ -1,0 +1,15 @@
+[11.02.2016 21:10:35.657] Попытка входа van8tka@tut.by
+[11.02.2016 21:12:12.342] Попытка входа desss
+[11.02.2016 21:12:39.633] Попытка входа desss@tre.com
+[11.02.2016 21:15:34.585] Попытка входа desss@tre.com
+[11.02.2016 21:16:41.221] Попытка входа compro@tyu.by
+[11.02.2016 21:18:09.214] Попытка регистрации нового пользователя Ира test7@tut.by
+[11.02.2016 22:07:58.690] Попытка регистрации нового пользователя Иван ioan-kuzmuk@gmail.com
+[11.02.2016 22:07:58.920] Создание сообщения для отправки
+[11.02.2016 22:11:47.113] Попытка регистрации нового пользователя Петр van8tka@tut.by
+[11.02.2016 22:11:47.190] Создание сообщения для отправки
+[11.02.2016 22:19:41.421] Попытка регистрации нового пользователя Костя van8tka@tut.by
+[11.02.2016 22:19:41.488] Создание сообщения для отправки
+[11.02.2016 22:21:21.554] Ошибка при создании и отправки сообщения: System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at evrostroy.Web.SendMessage.SendMsg.Message(String Body, String Them, String adresKlient) in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\SendMessage\SendMsg.cs:line 44

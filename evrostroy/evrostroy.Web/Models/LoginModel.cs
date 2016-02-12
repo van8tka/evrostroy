@@ -21,6 +21,7 @@ namespace evrostroy.Web.Models
         [Required(ErrorMessage = "Введите email адрес!")]
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^[a-zA-Z0-9.-]{1,30}@[a-zA-Z0-9]{1,20}\.[A-Za-z]{2,6}", ErrorMessage = "Неверный формат email(xxxxxx@xxx.xx).")]
         public string EmailUs { get; set; }
 
 
@@ -53,11 +54,21 @@ namespace evrostroy.Web.Models
     {
         [Required(ErrorMessage = "Введите email адрес!")]
         [Display(Name = "Имя пользователя(Email)")]
+        [RegularExpression(@"^[a-zA-Z0-9.-]{1,30}@[a-zA-Z0-9]{1,20}\.[A-Za-z]{2,6}", ErrorMessage = "Неверный формат email(xxxxx@xxx.xx).")]
         [DataType(DataType.EmailAddress)]
         public string NameIn { get; set; }
         [Required(ErrorMessage = "Введите пароль!")]
         [Display(Name = "Пароль")]
         [DataType(DataType.Password)]
         public string PasswordIn { get; set; }
+    }
+
+    public class NewpasswordModel
+    {
+        [Required(ErrorMessage = "Введите email адрес!")]
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^[a-zA-Z0-9.-]{1,30}@[a-zA-Z0-9]{1,20}\.[A-Za-z]{2,6}", ErrorMessage = "Неверный формат email(xxxxxx@xxx.xx).")]
+        public string EmailUs { get; set; }
     }
 }
