@@ -52,6 +52,7 @@ namespace evrostroy.Domain
         public string НаличиеФаски { get; set; }
         public string ПородаДерева { get; set; }
         public Nullable<int> Толщина { get; set; }
+        public string Описание { get; set; }
     
         public virtual Товары Товары { get; set; }
     }

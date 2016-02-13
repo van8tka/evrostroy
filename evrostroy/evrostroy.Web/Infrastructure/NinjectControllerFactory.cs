@@ -34,7 +34,8 @@ namespace evrostroy.Web.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IUsersRepository>().To<EfUsersRepository>();
-          
+            kernel.Bind<IProductsRepository>().To<EfProductsRepository>();
+
         }
     }
 }

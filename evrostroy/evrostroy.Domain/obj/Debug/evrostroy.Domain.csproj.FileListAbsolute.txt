@@ -8,3 +8,4 @@ D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\obj\Debug\evrostroy.Domain.dll
 D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\obj\Debug\evrostroy.Domain.pdb
 D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\GitHub\evrostroy\evrostroy\evrostroy.Domain\obj\Debug\evrostroy.Domain.csprojResolveAssemblyReference.cache

@@ -13,10 +13,12 @@ namespace evrostroy.Domain
      //этот класс будем внедрять в конструктор каждого контроллера
    
         private IUsersRepository usersRepository;
+        private IProductsRepository productsRepository;
 
-        public DataManager(IUsersRepository usersRepository)
+        public DataManager(IUsersRepository usersRepository, IProductsRepository productsRepository)
         {           
-            this.usersRepository = usersRepository; 
+            this.usersRepository = usersRepository;
+            this.productsRepository = productsRepository;
         }
 
 
@@ -29,6 +31,10 @@ namespace evrostroy.Domain
         {
             get { return usersRepository; }
         }
-              
+        public IProductsRepository ProductsRepository
+        {
+            get { return productsRepository; }
+        }
+
     }
 }

@@ -1,0 +1,87 @@
+﻿@model evrostroy.Web.Models.NavModel
+
+<dir class="ml10">
+   
+        @foreach (string i in Model.AllItems)
+        {
+            bool tap = false;
+         
+                foreach (string j in Model.Categories)
+                {
+                    if (j == i && !tap)
+                    {
+                        <a class="btn btn-primary">@i</a><br/>
+                        tap = true; break;
+                    }
+                    else
+                    {
+                        foreach (var k in Model.PodCategoriesF)
+                        {
+                            if (k == i&&!tap)
+                            {
+                             <a class="btn btn-default">@i</a><br />
+                                tap = true; break;
+                            }
+                            else
+                            {
+                                foreach (var q in Model.AnotherItems)
+                                {
+                                    if (q == i && !tap)
+                                    {
+                                               <a class="btn btn-info">@i</a><br />
+                                                 tap = true; break;
+                                    }
+                                    else
+                                    {
+                                        foreach (var d in Model.PodCategoriesS)
+                                        {
+                                            if (d == i && !tap)
+                                            {
+                                                <a class="btn btn-success">@i</a><br />
+                                            tap = true; break;
+                                        }
+                                        else
+                                        {
+                                            foreach (var f in Model.Contry)
+                                            {
+                                                if (f == i && !tap)
+                                                {
+                                                    <a class="btn">@i</a><br />
+                                                    tap = true; break;
+                                                }
+                                                else
+                                                {
+                                                    foreach (var g in Model.Brand)
+                                                    {
+                                                        if (g == i && !tap)
+                                                        {
+                                                            <a class="btn">@i</a><br />
+                                                            tap = true; break;
+                                                        }
+                                                     
+                                                    }
+
+                                                }
+                                                if (tap)
+                                                { break; }
+                                            }
+
+                                        }
+                                    }
+                                }
+                                if (tap)
+                                { break; }
+                            }
+                        }
+                        if (tap)
+                        { break; }
+                    }
+                    if (tap)
+                    { break; }
+                }
+            }
+
+        }
+
+
+</dir>

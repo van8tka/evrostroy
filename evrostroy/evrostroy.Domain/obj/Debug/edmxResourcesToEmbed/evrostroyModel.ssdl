@@ -100,6 +100,7 @@
     <Property Name="НаличиеФаски" Type="nvarchar" MaxLength="450" />
     <Property Name="ПородаДерева" Type="nvarchar" MaxLength="450" />
     <Property Name="Толщина" Type="int" />
+    <Property Name="Описание" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="ОтзывМагазина">
     <Key>
@@ -157,11 +158,13 @@
       <PropertyRef Name="ИдТовара" />
     </Key>
     <Property Name="ИдТовара" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Название" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Производитель" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="СтранаПроизводитель" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="Категория" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Метка" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Название" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="Производитель" Type="nvarchar" MaxLength="450" Nullable="false" />
+    <Property Name="СтранаПроизводитель" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Категория" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Подкатегория1" Type="nvarchar" MaxLength="250" />
+    <Property Name="Подкатегория2" Type="nvarchar" MaxLength="250" />
+    <Property Name="Метка" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Публикация" Type="bit" Nullable="false" />
     <Property Name="Цена" Type="int" Nullable="false" />
     <Property Name="Скидка" Type="int" />

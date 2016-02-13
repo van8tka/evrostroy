@@ -28,6 +28,8 @@ namespace evrostroy.Domain
         public string Производитель { get; set; }
         public string СтранаПроизводитель { get; set; }
         public string Категория { get; set; }
+        public string Подкатегория1 { get; set; }
+        public string Подкатегория2 { get; set; }
         public string Метка { get; set; }
         public bool Публикация { get; set; }
         public int Цена { get; set; }

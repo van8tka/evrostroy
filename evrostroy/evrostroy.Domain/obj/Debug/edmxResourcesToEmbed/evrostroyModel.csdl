@@ -103,6 +103,7 @@
     <Property Name="НаличиеФаски" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
     <Property Name="ПородаДерева" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
     <Property Name="Толщина" Type="Int32" />
+    <Property Name="Описание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Товары" Relationship="Self.FK_ОснХарактеристики_Товары" FromRole="ОснХарактеристики" ToRole="Товары" />
   </EntityType>
   <EntityType Name="ОтзывМагазина">
@@ -171,11 +172,13 @@
       <PropertyRef Name="ИдТовара" />
     </Key>
     <Property Name="ИдТовара" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Название" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Производитель" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="СтранаПроизводитель" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Категория" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Метка" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Название" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Производитель" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="СтранаПроизводитель" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Категория" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Подкатегория1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Подкатегория2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Метка" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Публикация" Type="Boolean" Nullable="false" />
     <Property Name="Цена" Type="Int32" Nullable="false" />
     <Property Name="Скидка" Type="Int32" />
