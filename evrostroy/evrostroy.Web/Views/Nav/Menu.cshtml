@@ -1,87 +1,58 @@
 ﻿@model evrostroy.Web.Models.NavModel
 
-<dir class="ml10">
-   
-        @foreach (string i in Model.AllItems)
-        {
-            bool tap = false;
-         
-                foreach (string j in Model.Categories)
-                {
-                    if (j == i && !tap)
-                    {
-                        <a class="btn btn-primary">@i</a><br/>
-                        tap = true; break;
-                    }
-                    else
-                    {
-                        foreach (var k in Model.PodCategoriesF)
-                        {
-                            if (k == i&&!tap)
-                            {
-                             <a class="btn btn-default">@i</a><br />
-                                tap = true; break;
-                            }
-                            else
-                            {
-                                foreach (var q in Model.AnotherItems)
-                                {
-                                    if (q == i && !tap)
-                                    {
-                                               <a class="btn btn-info">@i</a><br />
-                                                 tap = true; break;
-                                    }
-                                    else
-                                    {
-                                        foreach (var d in Model.PodCategoriesS)
-                                        {
-                                            if (d == i && !tap)
-                                            {
-                                                <a class="btn btn-success">@i</a><br />
-                                            tap = true; break;
-                                        }
-                                        else
-                                        {
-                                            foreach (var f in Model.Contry)
-                                            {
-                                                if (f == i && !tap)
-                                                {
-                                                    <a class="btn">@i</a><br />
-                                                    tap = true; break;
-                                                }
-                                                else
-                                                {
-                                                    foreach (var g in Model.Brand)
-                                                    {
-                                                        if (g == i && !tap)
-                                                        {
-                                                            <a class="btn">@i</a><br />
-                                                            tap = true; break;
-                                                        }
-                                                     
-                                                    }
 
-                                                }
-                                                if (tap)
-                                                { break; }
-                                            }
+<dir class="btn-group-vertical fll" style="margin-left:-63px">
+    @foreach (var i in Model.Attention)
+    {
+             <dir>
+                   @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn btn-danger col-sm-12", style = "width:170px"})
+             </dir>
+    }    
+</dir>
 
-                                        }
-                                    }
-                                }
-                                if (tap)
-                                { break; }
-                            }
-                        }
-                        if (tap)
-                        { break; }
-                    }
-                    if (tap)
-                    { break; }
-                }
-            }
+<dir class="btn-group-vertical fll" style="margin-left:-23px">
 
-        }
+   @for (int i = 0; i < Model.Lenght; i++)
+   {
+       switch (Model.Index.ElementAt(i))
+       {
+           case 0:
+               {
+                <div>
+                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", style="background-color:black" })
+                </div>
+                   break;
+               }
+           case 1:
+               {
+                <div>
+                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12" })
+                </div>
+                   break;
+               }
+        
+   case 2:
+   case 3:
+   case 4:
+   case 5:
+   case 6:
+       {
+                <div>
+                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i) }, new { @class = "btn btn-default col-sm-12" })
+                </div>
+                   break;
+               }
+           case 7:
+               {
+                <div class="btn btn-info">
+                     @Model.AllItems.ElementAt(i)
+                </div>
+                   break;
+               }
 
+           default:
+               break;
+       }
+   }
 
 </dir>

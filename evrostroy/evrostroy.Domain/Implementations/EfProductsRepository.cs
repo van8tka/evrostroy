@@ -15,9 +15,30 @@ namespace evrostroy.Domain.Implementations
         {
             this.context = context;
         }
+
+        public IEnumerable<ОснХарактеристики> GetMainCharByCateg(string category)
+        {
+           
+            IEnumerable<ОснХарактеристики> ret = from o in context.ОснХарактеристики
+                        join t in context.Товары on o.ИдТовара equals t.ИдТовара where(t.Категория == category)
+                        select o;
+
+            return ret;
+        }
+
+        public IEnumerable<ОснХарактеристики> GetAllMainChar()
+        {
+            return context.ОснХарактеристики;
+        }
+
         public IEnumerable<Товары> GetAllProducts()
         {
             return context.Товары;
+        }
+
+        public ОснХарактеристики GetMainCharById(int id)
+        {
+            return context.ОснХарактеристики.Where(x => x.ИдТовара == id).FirstOrDefault();
         }
 
         public Товары GetProductByID(int id)

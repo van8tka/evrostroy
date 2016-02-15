@@ -1,0 +1,4 @@
+[15.02.2016 15:42:35.486] Ошибка при создании бокового меню NavController/Menu: System.NullReferenceException: Object reference not set to an instance of an object.
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 39
+[15.02.2016 15:42:35.486] Ошибка при создании бокового меню NavController/Menu: System.NullReferenceException: Object reference not set to an instance of an object.
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 20
