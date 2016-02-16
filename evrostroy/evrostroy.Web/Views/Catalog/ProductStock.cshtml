@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.NameCategory.ToString()</h2>
+<h3>@Model.NameCategory.ToString()</h3>
+
+@Html.Action("BreadCrumbs","Catalog", new { route = Model.NameCategory.ToString()})
 
 @Html.Partial("ProductsList")

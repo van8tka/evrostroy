@@ -10,5 +10,6 @@ namespace evrostroy.Web.Models
     {
       public IEnumerable<Товары> Products { get; set; }
         public string NameCategory { get; set; }
+        public string Route { get; set; }
     }
 }

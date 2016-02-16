@@ -4,8 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.NameCategory.ToString()</h2>
-
+<h3>@Model.NameCategory.ToString()</h3>
+@*хлебные крошки*@
+        @Html.Action("BreadCrumbs","Catalog", new {route = Model.Route })
+  
 @Html.Partial("ProductsList")
 
 

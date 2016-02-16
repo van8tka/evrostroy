@@ -245,6 +245,7 @@
     <Content Include="Views\Catalog\ProductStock.cshtml" />
     <Content Include="Views\Shared\ProductsList.cshtml" />
     <Content Include="Views\Catalog\ProductCategory.cshtml" />
+    <Content Include="Views\Catalog\BreadCrumbs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
