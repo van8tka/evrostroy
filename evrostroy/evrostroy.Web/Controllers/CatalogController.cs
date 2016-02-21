@@ -11,6 +11,7 @@ namespace evrostroy.Web.Controllers
     public class CatalogController : Controller
     {
       private DataManager datamanager;
+
         public CatalogController(DataManager datamanager)
         {
             this.datamanager = datamanager;
@@ -22,17 +23,45 @@ namespace evrostroy.Web.Controllers
             return View();
         }
 
-        public ActionResult ProductStock(string metka)
+        //про акционные товары скидка уценка новинка
+        [HttpGet]
+        public ActionResult ProductStock(int page = 1, string metka = null, int PageSize = 10)
         {
             MainCharacteristicProductModels model = new MainCharacteristicProductModels();
-            model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Метка == metka.ToLower());
-           
-           model.NameCategory = metka;       
+            model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Метка == metka.ToLower()).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+            int TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Метка == metka.ToLower()).Count();
+
+            List<SelectListItem> CountItemPerPage = new List<SelectListItem>();
+
+            CountItemPerPage.Add(new SelectListItem { Text = "10", Value = "10" });
+            CountItemPerPage.Add(new SelectListItem { Text = "20", Value = "20" });
+            CountItemPerPage.Add(new SelectListItem { Text = "50", Value = "50" });
+            CountItemPerPage.Add(new SelectListItem { Text = "100", Value = "100" });
+
+            model.PageList = CountItemPerPage;
+            model.PagingInfo = new PagingInfo()
+            {
+                CurrentPage = page,
+                ItemsPerPage = PageSize,
+                TotalItems = TotalItemsProduct
+            };
+            model.NameCategory = metka;
+            model.Route = metka;     
             return View(model);
         }
 
-        public ActionResult ProductCategory(int num, string namecategory, string route)
+        [HttpPost]
+        public ActionResult ProductStock(MainCharacteristicProductModels model)
         {
+            return RedirectToAction("ProductStock", new {metka = model.NameCategory, PageSize = model.PagingInfo.ItemsPerPage});
+        }
+
+
+        //все категории
+        [HttpGet]
+        public ActionResult ProductCategory(int page = 1, int num = -1, string namecategory=null, string route=null, int PageSize = 10)
+        {
+            int TotalItemsProduct = 0;
             //параметры определены в navcontroller
             //int category = 0, podcat1 = 1, podcat2 = 2, ibrand = 3, icountry = 4, icolor = 5, imater = 6, idontactiv = 7;
             MainCharacteristicProductModels model = new MainCharacteristicProductModels();
@@ -40,22 +69,30 @@ namespace evrostroy.Web.Controllers
             {
                 case 0://каталог
                     {
-                        model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == namecategory);
+                        model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == namecategory).OrderBy(x=>x.ИдТовара).Skip((page-1)*PageSize).Take(PageSize);
+                        TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == namecategory).Count();
                         break;
                     }
                 case 1://подкаталог1
-                    model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Подкатегория1 == namecategory);
-                    break;
+                    {
+                        model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Подкатегория1 == namecategory).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+                        TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Подкатегория1 == namecategory).Count();
+                        break;
+                    }
                 case 2://полкаталог2
-                    model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Подкатегория2 == namecategory);
-                    break;
+                    {
+                        model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Подкатегория2 == namecategory).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+                        TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Подкатегория2 == namecategory).Count();
+                        break;
+                    }
                 case 3://брэнд(производитель)
                     {
                         string[] pars = new string[] { };
                         if (route != null)
                             pars = route.Split('/');
                         IEnumerable<Товары> temp = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == pars[0]);
-                        model.Products = temp.Where(x => x.Производитель == namecategory);
+                        model.Products = temp.Where(x => x.Производитель == namecategory).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+                        TotalItemsProduct = temp.Where(x => x.Производитель == namecategory).Count();
                         break;
                     }
                 case 4://страна производитель
@@ -64,15 +101,17 @@ namespace evrostroy.Web.Controllers
                     if (route != null)
                         pars = route.Split('/');
                         IEnumerable<Товары> temp = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == pars[0]);
-                        model.Products = temp.Where(x => x.СтранаПроизводитель == namecategory);
-                    break;
+                        model.Products = temp.Where(x => x.СтранаПроизводитель == namecategory).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+                        TotalItemsProduct = temp.Where(x => x.СтранаПроизводитель == namecategory).Count();
+                        break;
                     }
                 case 5://цвет
                     {
                         string[] pars = new string[] { };
                         if (route != null)
                             pars = route.Split('/');
-                        model.Products = datamanager.ProductsRepository.GetMainCharByCateg(pars[0]).Where(x=>x.Цвет == namecategory).Select(z=>z.Товары);
+                        model.Products = datamanager.ProductsRepository.GetMainCharByCateg(pars[0]).Where(x=>x.Цвет == namecategory).Select(z=>z.Товары).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+                        TotalItemsProduct = datamanager.ProductsRepository.GetMainCharByCateg(pars[0]).Where(x => x.Цвет == namecategory).Select(z => z.Товары).Count();
                         break;
                     }
                 case 6:
@@ -80,16 +119,40 @@ namespace evrostroy.Web.Controllers
                         string[] pars = new string[] { };
                         if (route != null)
                             pars = route.Split('/');
-                        model.Products = datamanager.ProductsRepository.GetMainCharByCateg(pars[0]).Where(x => x.Материал == namecategory).Select(z => z.Товары).OrderBy(x => x);
+                        model.Products = datamanager.ProductsRepository.GetMainCharByCateg(pars[0]).Where(x => x.Материал == namecategory).Select(z => z.Товары).OrderBy(x => x).OrderBy(x => x.ИдТовара).Skip((page - 1) * PageSize).Take(PageSize);
+                        TotalItemsProduct = datamanager.ProductsRepository.GetMainCharByCateg(pars[0]).Where(x => x.Материал == namecategory).Select(z => z.Товары).Count();
                         break;
                     }
                 default:
                     break;
             }
+            List<SelectListItem> CountItemPerPage = new List<SelectListItem>();
+          
+            CountItemPerPage.Add(new SelectListItem { Text = "10", Value = "10" });
+            CountItemPerPage.Add(new SelectListItem { Text = "20", Value = "20" });
+            CountItemPerPage.Add(new SelectListItem { Text = "50", Value = "50" });
+            CountItemPerPage.Add(new SelectListItem { Text = "100", Value = "100" });
+
+            model.PageList = CountItemPerPage;
+            model.PagingInfo = new PagingInfo()
+            {
+                CurrentPage = page,
+                ItemsPerPage = PageSize,
+                TotalItems = TotalItemsProduct
+            };
+            model.Num = num;
             model.Route = route;
             model.NameCategory = namecategory;
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult ProductCategory(MainCharacteristicProductModels model)
+        {           
+            return RedirectToAction("ProductCategory", new { num = model.Num, namecategory = model.NameCategory, route = model.Route, PageSize = model.PagingInfo.ItemsPerPage });
+        }
+
+
 
         // хлебные крошки
         public PartialViewResult BreadCrumbs(string route = null, string additem=null)
@@ -100,6 +163,5 @@ namespace evrostroy.Web.Controllers
           
             return PartialView(pars);
         }
-
     }
 }

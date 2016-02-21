@@ -19,14 +19,14 @@
            case 0:
                {
                 <div>
-                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", style="background-color:black" })
+                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new {page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", style="background-color:black" })
                 </div>
                    break;
                }
            case 1:
                {
                 <div>
-                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12" })
+                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12" })
                 </div>
                    break;
                }
@@ -38,7 +38,7 @@
    case 6:
        {
                 <div>
-                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-default col-sm-12" })
+                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-default col-sm-12" })
                 </div>
                    break;
                }

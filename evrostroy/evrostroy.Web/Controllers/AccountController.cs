@@ -2,6 +2,7 @@
 using evrostroy.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,7 +32,8 @@ namespace evrostroy.Web.Controllers
             ViewBag.Rest = false;
             try { 
                 if (ModelState.IsValid)
-                {
+                {//вызов метода удаления Log файлов каждый месяц 21 число
+                    DeleteLog();
                     string g = "i";
                     Пользователи us = null;
                     using (evrostroydbEntities context = new evrostroydbEntities())
@@ -65,6 +67,20 @@ namespace evrostroy.Web.Controllers
                 return RedirectToAction("Exception");
             }
             
+        }
+        //метод очистки папки LOG каждый месяц
+        private void DeleteLog()
+        {
+            if (DateTime.Now.Day == 21)
+            {
+                string domainpath = Server.MapPath("~//Log//");
+                var dir = new DirectoryInfo(domainpath);
+                FileInfo[] fileNames = dir.GetFiles("*.*");
+                foreach (var item in fileNames)
+                {
+                    item.Delete();
+                }
+            }
         }
 
         //метод выхода

@@ -23,6 +23,23 @@ textarea {
     max-width: 280px;
 }
 
+//pager
+/*border-top: 2px solid silver;*/
+.pager2 { max-height: 20px;}
+div.pager2 {text-align:center; padding: .5em 0 0 0; margin-top: 1em; }
+div.pager2 a {font-size: 1.1em; color:#666; text-decoration: none; padding: 0 .4em 0 .4em; }
+div.pager2 a:hover {background-color: silver;}
+div.pager2 a.selected {background-color:#353535; color:white;}
+
+#pagerid2top{
+    border-bottom: 2px solid silver;
+}
+
+#pagerid2bot{
+    border-top: 2px solid silver;
+}
+
+
 
 #verticalmenubutton{
     color:black;

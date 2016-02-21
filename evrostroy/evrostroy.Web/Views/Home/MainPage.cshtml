@@ -1,25 +1,58 @@
 ﻿@using evrostroy.Domain;
-@model IEnumerable<Пользователи>
+@model evrostroy.Web.Models.ForMainBannerModel
 @{
     ViewBag.Title = "Главная";
 }
 
-<table>
-    <tr>
-        <td>ID</td>
-        <td>Имя</td>
-        <td>Телефон</td>
-        <td>Email</td>
-        <td>Город</td>
-    </tr>
-    @foreach(var i in Model)
-    {
-        <tr>
-            <td>@i.ИдПользователя</td>
-            <td>@i.Имя</td>
-            <td>@i.Телефон</td>
-            <td>@i.Email</td>
-            <td>@i.Город</td>
-        </tr>
-    }
-</table>
+
+<div class="container mt20">
+    <div class="row otstup">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height:300px;width:800px">
+                <ol class="carousel-indicators">
+                    @for (int i = 0; i < Model.CountFile; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <li data-target="#carousel-example-generic" data-slide-to="@i" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#carousel-example-generic" data-slide-to="@i"></li>
+                        }
+
+                    }
+
+                </ol>
+                    <!-- Содержимое слайдов -->    
+                <div class="carousel-inner" style="height:300px;width:800px">
+
+                        @for (int i = 0; i < Model.CountFile; i++)
+                        {
+                            if (i == 0)
+                            {
+                                <div class="item active">  
+                                    <img src="~/Content/ImageForMainBanner/@Model.FileName.ElementAt(i)" />                                
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <img src="~/Content/ImageForMainBanner/@Model.FileName.ElementAt(i)" />
+                                </div>
+                            }
+                        }
+                </div>          
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+</div>
+
+        </div>
+    </div>
+</div>
