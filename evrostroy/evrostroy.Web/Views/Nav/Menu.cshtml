@@ -1,58 +1,188 @@
 ﻿@model evrostroy.Web.Models.NavModel
 
+<nav class="navmenu navmenu-default navmenu-fixed-left" role="navigation">
 
-<dir class="btn-group-vertical fll" style="margin-left:-63px">
     @foreach (var i in Model.Attention)
+            {
+                    @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn btn-danger col-sm-12" })
+            }
+
+    <ul class="cd-accordion-menu animated ml-25">
+        <li class="has-children">
+            <input type="checkbox" name="group-1" id="group-1" checked>
+            <label for="group-1">Входные двери</label>
+            <ul class="ml-25">
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-1" id="sub-group-1">
+                    <label for="sub-group-1">Брэнд</label>
+
+                    <ul class="ml-25">
+                        @foreach (var i in Model.BrandOutDoor)
+                        {
+                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 0, name = i }, new { @class = "btn btn-primary col-sm-12" })
+                        }
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-2" id="sub-group-2">
+                    <label for="sub-group-2">Страна производитель</label>
+                    <ul class="ml-25">
+                        @foreach (var i in Model.CountryOutDoor)
+                        {
+                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 1, name = i }, new { @class = "btn btn-primary col-sm-12" })
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="cd-accordion-menu animated ml-25">
+        <li class="has-children">
+            <input type="checkbox" name="group-2" id="group-2" checked>
+            <label for="group-2">Межкомнатные двери</label>
+
+            <ul class="ml-25">
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-21" id="sub-group-21">
+                    <label for="sub-group-21">Брэнд</label>
+
+                    <ul class="ml-25">
+                        @foreach (var i in Model.BrandInDoor)
+                        {
+                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 2, name = i }, new { @class = "btn btn-primary col-sm-12" })
+                        }
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-22" id="sub-group-22">
+                    <label for="sub-group-22">Страна производитель</label>
+                    <ul class="ml-25">
+                        @foreach (var i in Model.CountryInDoor)
+                        {
+                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 3, name = i }, new { @class = "btn btn-primary col-sm-12" })
+                        }
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-23" id="sub-group-23">
+                    <label for="sub-group-23">Цвет</label>
+                    <ul class="ml-25">
+                        @foreach (var i in Model.ColorInDoor)
+                        {
+                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 4, name = i }, new { @class = "btn btn-primary col-sm-12" })
+                        }
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-24" id="sub-group-24">
+                    <label for="sub-group-24">Материал</label>
+                    <ul class="ml-25">
+                        @foreach (var i in Model.MaterialInDoor)
+                        {
+                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 5, name = i }, new { @class = "btn btn-primary col-sm-12" })
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    @for (int i = 0; i < Model.CategoryD.Count(); i++)
     {
-             <dir>
-                   @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn btn-danger col-sm-12", style = "width:170px"})
-             </dir>
-    }    
-</dir>
+       
+        <ul class="cd-accordion-menu animated ml-25">
+            <li class="has-children">  
+                @if ((i != 0 && Model.CategoryD.ElementAt(i).Value != Model.CategoryD.ElementAt(i - 1).Value)||i==0)
+                {    
+                 <input type="checkbox" name="group-1" id="group-1" checked>
+                <label for="group-1">@Model.CategoryD.ElementAt(i).Value</label>
+                }
+                <ul class="ml-25">
+                    <li class="has-children">
+                        <input type="checkbox" name="sub-group-1" id="sub-group-1">
+                        <label for="sub-group-1">@Model.CategoryD.ElementAt(i).Key</label>
 
-<dir class="btn-group-vertical fll" style="margin-left:-23px">
+                        <ul class="ml-25">
+                            @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
+                            {
+                                if (z.Value == Model.CategoryD.ElementAt(i).Key)
+                                {
+                                    @Html.ActionLink(z.Key, "ProductCat", "Catalog", new { num = 0, name = z.Key }, new { @class = "btn btn-primary col-sm-12" })
+                                }
+                            }
+                        </ul>
+                    </li>
+               </ul>
+            </li>
+        </ul>
+        }
+        @*else
+        {
+            <ul class="ml-25">
+                <li class="has-children">
+                    <input type="checkbox" name="sub-group-1" id="sub-group-1">
+                    <label for="sub-group-1">@Model.CategoryD.ElementAt(i).Key</label>
 
-   @for (int i = 0; i < Model.Lenght; i++)
-   {
-       switch (Model.Index.ElementAt(i))
-       {
-           case 0:
-               {
-                <div>
-                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new {page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", style="background-color:black" })
-                </div>
-                   break;
-               }
-           case 1:
-               {
-                <div>
-                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12" })
-                </div>
-                   break;
-               }
-        
-   case 2:
-   case 3:
-   case 4:
-   case 5:
-   case 6:
-       {
-                <div>
-                    @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-default col-sm-12" })
-                </div>
-                   break;
-               }
-           case 7:
-               {
-                <div class="btn btn-info">
-                     @Model.AllItems.ElementAt(i)
-                </div>
-                   break;
-               }
+                    <ul class="ml-25">
+                        @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
+                        {
+                            if (z.Value == Model.CategoryD.ElementAt(i).Key)
+                            {
+                                @Html.ActionLink(z.Key, "ProductCat", "Catalog", new { num = 0, name = z.Key }, new { @class = "btn btn-primary col-sm-12" })
+                            }
+                        }
+                    </ul>
+                </li>
+            </ul>
+        }*@
 
-           default:
-               break;
-       }
-   }
+    @*}*@
 
-</dir>
+</nav>
+
+
+         
+
+
+
+
+
+                @*<nav class="navmenu navmenu-default navmenu-fixed-left" role="navigation">*@
+                @*@foreach (var i in Model.Attention)
+                    {
+                        @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn btn-danger col-sm-12"})
+                    }
+                    @for (int i = 0; i < Model.Lenght; i++)
+                    {*@
+                @*switch (Model.Index.ElementAt(i))
+                    {
+                        case 0:
+                                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", style = "background-color:black" })
+                                  break;
+                        case 1:
+                                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", id = "podcategory1" })
+                                  break;
+                                       case 2:
+                                        case 3:
+                                        case 4:
+                                        case 5:
+                                        case 6:
+                                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-default col-sm-12", id = "podcategory2" })
+                                break;
+                        case 7:
+                                 <p class="btn btn-info col-sm-12" id="podcategory1">@Model.AllItems.ElementAt(i)</p>
+                                 break;
+                        default:
+                            break;
+                    }*@
+                @*}*@
+                @*</nav>*@
+
+                @*<script type="text/javascript">
+                        //$(document).ready(function () {
+                            $('#podcategory2').css('display', 'none');
+                            alert('Вы нажали на элемент "foo"');
+                        //});
+
+                    </script>*@

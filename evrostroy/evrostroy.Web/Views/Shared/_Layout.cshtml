@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - ЛюксЕвроСтрой</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -44,19 +45,22 @@
     </div>
     @*правое меню*@
     <div class="row panel mt50" >
-        <div id="categories" class="col-sm-2" style="background-color:lightgray; padding-top:20px;">
-            @Html.Action("Menu", "Nav")
-        </div>
-        <div class="container body-content" style="margin-left:18vw;">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - ЛюксЕвроСтрой </p>
-            </footer>
-        </div>
+     
+            <div id="categories" class="col-sm-2 hidden-xs" style="background-color:lightgray; padding-top:20px;">
+                @Html.Action("Menu", "Nav")
+            </div>
+            <div class="container body-content" style="margin-left:18vw;">
+                @RenderBody()
+                <hr />
+               
+            </div>
 
-    </div>
-
+        </div>
+    <footer>
+        <dir class="mt40">
+            <p>&copy; @DateTime.Now.Year - ЛюксЕвроСтрой </p>
+        </dir>
+    </footer>
    
 
     @Scripts.Render("~/bundles/jquery")

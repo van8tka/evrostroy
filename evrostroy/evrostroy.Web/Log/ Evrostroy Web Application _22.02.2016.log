@@ -1,0 +1,87 @@
+[22.02.2016 12:06:35.118] Ошибка при создании бокового меню NavController/Menu: System.NullReferenceException: Object reference not set to an instance of an object.
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 28
+[22.02.2016 22:10:42.713] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:14:28.063] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:15:06.229] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:16:23.443] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:17:28.560] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:18:11.202] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:21:04.717] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:33:21.682] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:33:27.000] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:33:37.328] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:35:31.109] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:36:09.787] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:37:37.079] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 113
+[22.02.2016 22:37:43.813] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 107
+[22.02.2016 22:37:55.754] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 107
+[22.02.2016 22:39:54.447] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 107
+[22.02.2016 22:43:13.288] Ошибка при создании бокового меню NavController/Menu: System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at evrostroy.Web.Controllers.NavController.Menu() in D:\GitHub\evrostroy\evrostroy\evrostroy.Web\Controllers\NavController.cs:line 107
