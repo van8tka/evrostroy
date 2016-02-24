@@ -152,20 +152,39 @@ namespace evrostroy.Web.Controllers
             return RedirectToAction("ProductCategory", new { num = model.Num, namecategory = model.NameCategory, route = model.Route, PageSize = model.PagingInfo.ItemsPerPage });
         }
 
-        //обработка нового меню
+        //обработка нового меню для дверей 
         [HttpGet]
-        public ActionResult ProductCat(int page = 1,int num = -1,string name = null, int PageSize = 10)
-       {
+        public ActionResult ProductCat(int page = 1, int num = -1, string name = null, string cat = null, string podcat = null, int PageSize = 10)
+        {
             MainCharacteristicProductModels model = new MainCharacteristicProductModels();
             int TotalItemsProduct = 0;
+
+            if(cat!=null)
+            {
+                IEnumerable<Товары> categor = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == cat).OrderBy(x => x.Название);
+                if(podcat!=null)
+                {
+                    IEnumerable<Товары> podcattov = categor.Where(x => x.Подкатегория1 == podcat).OrderBy(x => x.Название);
+                    if((podcattov.First()!=null || podcattov.Last()!=null)|| name!=null)
+                    {
+                        model.Products = podcattov.Where(x => x.Подкатегория2 == name).OrderBy(x => x.Название).Skip((page - 1) * PageSize).Take(PageSize);
+                    }
+                }
+
+            }
+
+
+
+
+
             switch (num)
             {//входные двери
                 case 0://производитель
                     {
-                        model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Входные двери").Where(x=>x.Производитель==name).OrderBy(x=>x.Название).Skip((page-1)*PageSize).Take(PageSize);                      
+                        model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Входные двери").Where(x => x.Производитель == name).OrderBy(x => x.Название).Skip((page - 1) * PageSize).Take(PageSize);
                         TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Входные двери").Where(x => x.Производитель == name).Count();
                         model.NameCategory = name;
-                        model.Route = "Входные двери/Производитель/"+name;
+                        model.Route = "Входные двери/Производитель/" + name;
                         break;
                     }
                 case 1:
@@ -189,7 +208,7 @@ namespace evrostroy.Web.Controllers
                         model.Products = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Межкомнатные двери").Where(x => x.СтранаПроизводитель == name).OrderBy(x => x.Название).Skip((page - 1) * PageSize).Take(PageSize);
                         TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Межкомнатные двери").Where(x => x.СтранаПроизводитель == name).Count();
                         model.NameCategory = name;
-                        model.Route = "Межкомнатные двери/Страна производитель/"+ name;
+                        model.Route = "Межкомнатные двери/Страна производитель/" + name;
                         break;
                     }
                 case 4:
@@ -222,14 +241,14 @@ namespace evrostroy.Web.Controllers
 
 
             model.PagingInfo = new PagingInfo()
-                    {
-                        CurrentPage = page,
-                        ItemsPerPage = PageSize,
-                        TotalItems = TotalItemsProduct
-                    };
+            {
+                CurrentPage = page,
+                ItemsPerPage = PageSize,
+                TotalItems = TotalItemsProduct
+            };
             model.Num = num;
-                     return View(model);
-     }
+            return View(model);
+        }
 
         [HttpPost]
         public ActionResult ProductCat(MainCharacteristicProductModels model)
@@ -237,7 +256,7 @@ namespace evrostroy.Web.Controllers
             return RedirectToAction("ProductCat", new { num = model.Num, name = model.NameCategory, route = model.Route, PageSize = model.PagingInfo.ItemsPerPage });
         }
 
-
+       
         // хлебные крошки
         public PartialViewResult BreadCrumbs(string route = null, string additem=null)
         {

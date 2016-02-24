@@ -9,13 +9,12 @@
 
     <ul class="cd-accordion-menu animated ml-25">
         <li class="has-children">
-            <input type="checkbox" name="group-1" id="group-1" checked>
-            <label for="group-1">Входные двери</label>
+            <input type="checkbox" name="group-111" id="group-111" checked>
+            <label for="group-111">Входные двери</label>
             <ul class="ml-25">
                 <li class="has-children">
-                    <input type="checkbox" name="sub-group-1" id="sub-group-1">
-                    <label for="sub-group-1">Брэнд</label>
-
+                    <input type="checkbox" name="sub-group-111" id="sub-group-111">
+                    <label for="sub-group-111">Брэнд</label>
                     <ul class="ml-25">
                         @foreach (var i in Model.BrandOutDoor)
                         {
@@ -24,8 +23,8 @@
                     </ul>
                 </li>
                 <li class="has-children">
-                    <input type="checkbox" name="sub-group-2" id="sub-group-2">
-                    <label for="sub-group-2">Страна производитель</label>
+                    <input type="checkbox" name="sub-group-121" id="sub-group-121">
+                    <label for="sub-group-121">Страна производитель</label>
                     <ul class="ml-25">
                         @foreach (var i in Model.CountryOutDoor)
                         {
@@ -39,13 +38,13 @@
 
     <ul class="cd-accordion-menu animated ml-25">
         <li class="has-children">
-            <input type="checkbox" name="group-2" id="group-2" checked>
-            <label for="group-2">Межкомнатные двери</label>
+            <input type="checkbox" name="group-211" id="group-211" checked>
+            <label for="group-211">Межкомнатные двери</label>
 
             <ul class="ml-25">
                 <li class="has-children">
-                    <input type="checkbox" name="sub-group-21" id="sub-group-21">
-                    <label for="sub-group-21">Брэнд</label>
+                    <input type="checkbox" name="sub-group-211" id="sub-group-211">
+                    <label for="sub-group-211">Брэнд</label>
 
                     <ul class="ml-25">
                         @foreach (var i in Model.BrandInDoor)
@@ -55,8 +54,8 @@
                     </ul>
                 </li>
                 <li class="has-children">
-                    <input type="checkbox" name="sub-group-22" id="sub-group-22">
-                    <label for="sub-group-22">Страна производитель</label>
+                    <input type="checkbox" name="sub-group-221" id="sub-group-221">
+                    <label for="sub-group-221">Страна производитель</label>
                     <ul class="ml-25">
                         @foreach (var i in Model.CountryInDoor)
                         {
@@ -65,8 +64,8 @@
                     </ul>
                 </li>
                 <li class="has-children">
-                    <input type="checkbox" name="sub-group-23" id="sub-group-23">
-                    <label for="sub-group-23">Цвет</label>
+                    <input type="checkbox" name="sub-group-231" id="sub-group-231">
+                    <label for="sub-group-231">Цвет</label>
                     <ul class="ml-25">
                         @foreach (var i in Model.ColorInDoor)
                         {
@@ -75,8 +74,8 @@
                     </ul>
                 </li>
                 <li class="has-children">
-                    <input type="checkbox" name="sub-group-24" id="sub-group-24">
-                    <label for="sub-group-24">Материал</label>
+                    <input type="checkbox" name="sub-group-241" id="sub-group-241">
+                    <label for="sub-group-241">Материал</label>
                     <ul class="ml-25">
                         @foreach (var i in Model.MaterialInDoor)
                         {
@@ -88,101 +87,37 @@
         </li>
     </ul>
 
-    @for (int i = 0; i < Model.CategoryD.Count(); i++)
-    {
-       
+
+    @for (int i=0; i < Model.Category.Count(); i++)
+    {  
         <ul class="cd-accordion-menu animated ml-25">
-            <li class="has-children">  
-                @if ((i != 0 && Model.CategoryD.ElementAt(i).Value != Model.CategoryD.ElementAt(i - 1).Value)||i==0)
-                {    
-                 <input type="checkbox" name="group-1" id="group-1" checked>
-                <label for="group-1">@Model.CategoryD.ElementAt(i).Value</label>
-                }
+            <li class="has-children">
+                <input type="checkbox" name="group-@i" id="group-@i" checked>
+                <label for="group-@i">@Model.Category.ElementAt(i)</label>
                 <ul class="ml-25">
-                    <li class="has-children">
-                        <input type="checkbox" name="sub-group-1" id="sub-group-1">
-                        <label for="sub-group-1">@Model.CategoryD.ElementAt(i).Key</label>
-
-                        <ul class="ml-25">
-                            @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
-                            {
-                                if (z.Value == Model.CategoryD.ElementAt(i).Key)
-                                {
-                                    @Html.ActionLink(z.Key, "ProductCat", "Catalog", new { num = 0, name = z.Key }, new { @class = "btn btn-primary col-sm-12" })
-                                }
-                            }
-                        </ul>
-                    </li>
-               </ul>
-            </li>
-        </ul>
-        }
-        @*else
-        {
-            <ul class="ml-25">
-                <li class="has-children">
-                    <input type="checkbox" name="sub-group-1" id="sub-group-1">
-                    <label for="sub-group-1">@Model.CategoryD.ElementAt(i).Key</label>
-
-                    <ul class="ml-25">
-                        @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
+                    @for (int j = 0; j < Model.CategoryD.Count(); j++)
+                    {
+                        if (Model.CategoryD.ElementAt(j).Value == Model.Category.ElementAt(i))
                         {
-                            if (z.Value == Model.CategoryD.ElementAt(i).Key)
-                            {
-                                @Html.ActionLink(z.Key, "ProductCat", "Catalog", new { num = 0, name = z.Key }, new { @class = "btn btn-primary col-sm-12" })
-                            }
-                        }
-                    </ul>
-                </li>
-            </ul>
-        }*@
-
-    @*}*@
-
+                              <li class="has-children">
+                                    <input type="checkbox" name="sub-group-@(j+i)" id="sub-group-@(j+i)">
+                                    <label for="sub-group-@(j+i)">@Model.CategoryD.ElementAt(j).Key</label>
+                                    <ul class="ml-25">
+                                        @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
+                                        {
+                                            if (z.Value == @Model.CategoryD.ElementAt(j).Key)
+                                            {
+                                                @Html.ActionLink(z.Key, "ProductCatPodcat", "Catalog", new { num = 0, name = z.Key }, new { @class = "btn btn-primary col-sm-12" })
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                         }
+                    }
+                </ul>
+         </li>
+     </ul>
+   }
+    
 </nav>
 
-
-         
-
-
-
-
-
-                @*<nav class="navmenu navmenu-default navmenu-fixed-left" role="navigation">*@
-                @*@foreach (var i in Model.Attention)
-                    {
-                        @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn btn-danger col-sm-12"})
-                    }
-                    @for (int i = 0; i < Model.Lenght; i++)
-                    {*@
-                @*switch (Model.Index.ElementAt(i))
-                    {
-                        case 0:
-                                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", style = "background-color:black" })
-                                  break;
-                        case 1:
-                                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-primary col-sm-12", id = "podcategory1" })
-                                  break;
-                                       case 2:
-                                        case 3:
-                                        case 4:
-                                        case 5:
-                                        case 6:
-                                  @Html.ActionLink(Model.AllItems.ElementAt(i), "ProductCategory", "Catalog", new { page = 1, num = Model.Index.ElementAt(i), namecategory = Model.AllItems.ElementAt(i), route = Model.RoutProduct.ElementAt(i) }, new { @class = "btn btn-default col-sm-12", id = "podcategory2" })
-                                break;
-                        case 7:
-                                 <p class="btn btn-info col-sm-12" id="podcategory1">@Model.AllItems.ElementAt(i)</p>
-                                 break;
-                        default:
-                            break;
-                    }*@
-                @*}*@
-                @*</nav>*@
-
-                @*<script type="text/javascript">
-                        //$(document).ready(function () {
-                            $('#podcategory2').css('display', 'none');
-                            alert('Вы нажали на элемент "foo"');
-                        //});
-
-                    </script>*@
