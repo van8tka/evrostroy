@@ -16,7 +16,15 @@ namespace evrostroy.Web.Models
         public PagingInfo PagingInfo { get; set; }
 
        public List<SelectListItem> PageList { get; set; }
-        
+        public string Category { get; set; }
+        public string Podcategory1 { get; set; }
+        public string Podcategory2 { get; set; }
+        public int ID { get; set; }
+        public Товары Tov { get; set; }
+        public ОснХарактеристики OsnTov { get; set; }
+        public ДопХарактеристики DopTov { get; set; }
+        public ФотоТовара PhotoTov { get; set; }
+
     }
        
 }

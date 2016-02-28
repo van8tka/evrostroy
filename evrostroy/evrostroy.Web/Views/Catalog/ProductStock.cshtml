@@ -8,7 +8,7 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <h3>@Model.NameCategory.ToString()</h3>
 
-@Html.Action("BreadCrumbs", "Catalog", new { route = Model.Route })
+@Html.Action("BreadCrumbs", "Catalog", new { mod = Model})
 
 
 
@@ -21,17 +21,14 @@
         <input type="submit" value="Применить" class="btn btn-default" />
     </div>
 
-
     <div class="pager2" id="pagerid2top">
         @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductStock", new { page = x, metka = Model.NameCategory, PageSize = Model.PagingInfo.ItemsPerPage }))
     </div>
 
-<div class="row mt10">
-    @foreach (Товары prod in Model.Products)
-    {
-        @Html.Partial("ProductsList", prod)
-    }
-</div>
+    <div class="row mt10">
+        @Html.Partial("ProductsList", Model)
+    </div>
+
 <div class="pager2" id="pager2idbot">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductStock", new { page = x, metka = Model.NameCategory, PageSize = Model.PagingInfo.ItemsPerPage }))
 </div>

@@ -49,13 +49,7 @@ namespace evrostroy.Web.Controllers
                     temp.Add(i);
                 }
                 model.BrandOutDoor = temp;
-                IEnumerable<string> country = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Входные двери").Select(x => x.СтранаПроизводитель).Distinct().OrderBy(x => x);
-                List<string> temp2 = new List<string>();
-                foreach(var i in country)
-                {
-                    temp2.Add(i);
-                }
-                model.CountryOutDoor = temp2;
+               
                 //межкомнатные двери
                 List<string> temp4 = new List<string>();
                 IEnumerable<string> brand1 = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Межкомнатные двери").Select(x => x.Производитель).Distinct().OrderBy(x => x);
@@ -64,30 +58,7 @@ namespace evrostroy.Web.Controllers
                     temp4.Add(i);
                 }
                 model.BrandInDoor = temp4;
-                IEnumerable<string> country1 = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Межкомнатные двери").Select(x => x.СтранаПроизводитель).Distinct().OrderBy(x => x);
-                List<string> temp3 = new List<string>();
-                foreach (var i in country1)
-                {
-                    temp3.Add(i);
-                }
-                model.CountryInDoor = temp3;
-                IEnumerable<string> material = datamanager.ProductsRepository.GetMainCharByCateg("Межкомнатные двери").Select(x => x.Материал).Distinct().OrderBy(x => x);
-                List<string> t5 = new List<string>();
-                foreach (var i in material)
-                {
-                    if(i!=null)
-                     t5.Add(i);
-                }
-                model.MaterialInDoor = t5;
-                IEnumerable<string> color = datamanager.ProductsRepository.GetMainCharByCateg("Межкомнатные двери").Select(x => x.Цвет).Distinct().OrderBy(x => x);
-                List<string> t6 = new List<string>();
-                foreach (var i in color)
-                {
-                    if(i!=null)
-                    t6.Add(i);
-                }
-                model.ColorInDoor = t6;
-
+               
                 Dictionary<string, string> ferstD = new Dictionary<string, string>();
                 Dictionary<string, string> secondD = new Dictionary<string, string>();
                 //список категорий без дверей

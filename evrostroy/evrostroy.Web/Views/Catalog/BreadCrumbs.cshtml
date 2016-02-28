@@ -1,34 +1,66 @@
-﻿@model string[]
-<div class="row hidden-xs" style="height:50px; background-color:gainsboro">
+﻿@model evrostroy.Web.Models.MainCharacteristicProductModels
+<div class="row hidden-xs" style="height:50px; background-color:gainsboro; font-size:0.85em">
     <ul class="nav navbar-nav">
         <li><a>Вы здесь:</a></li>
-        <li>@Html.ActionLink("Главная","MainPage","Home")</li>
-      @if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Catalog")
-      {
-        <li>@Html.ActionLink("-> Каталог", "Price", "Catalog")</li>
-      }
-
-        @for (int i = 0; i < Model.Length; i++)
-        {
-            switch (i)
+        <li>
+            @Html.ActionLink("Главная", "MainPage", "Home")
+        </li>
+        @if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString() == "Catalog")
             {
-                case 0:
-                    <li><a>-> @Model.ElementAt(0)</a></li>
-                    break;
-                case 1:
-                      <li><a>-> @Model.ElementAt(1)</a></li>
-                        break;
-                case 2:
-                    <li><a>-> @Model.ElementAt(2)</a></li>
-                    break;
-                case 3:
-                    <li><a>-> @Model.ElementAt(3)</a></li>
-                    break;
-                default:
-                    break;
+            <li><a> -> </a> </li>
+            <li>
+                @Html.ActionLink("Каталог", "Price", "Catalog")
+            </li>
+        }
+        @if (Model.Category != null)
+            {
+            <li><a> -> </a></li>
+            //проверяем на равенство для акционного товара(новинкаб скидка уценка)
+            if (Model.Category.ToLower() == "новинка" || Model.Category.ToLower() == "уценка" || Model.Category.ToLower() == "скидка")
+            {
+                <li>
+                    <a href="/Catalog/ProductStock?metka=@Model.Category">@Model.Category</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="/Catalog/ProductCat?num=1 &name=@Model.Category">@Model.Category</a>
+                </li>
+            }
+            if (Model.Podcategory1 != null && !Model.Podcategory1.IsEmpty())
+            {
+                <li><a> -> </a></li>
+                <li>
+                    <a href="/Catalog/ProductCat?&name=@Model.Podcategory1&cat=@Model.Category&podcat=@Model.Podcategory1">@Model.Podcategory1</a>
+                </li>
+            }
+            if (Model.Podcategory2 != null && !Model.Podcategory2.IsEmpty())
+            {
+                <li><a> -> </a></li>
+                <li>
+                    @if (Model.Num == 0)
+                    {
+                        <a href="/Catalog/ProductCat?num=0&name=@Model.Podcategory2&cat=@Model.Category&podcat=@Model.Podcategory1">@Model.Podcategory2</a>
+                    }
+                    else
+                    {
+                        if (Model.Num == 2)
+                        {
+                            <a href="/Catalog/ProductCat?num=2&name=@Model.Podcategory2&cat=@Model.Category&podcat=@Model.Podcategory1">@Model.Podcategory2</a>
+                        }
+                        else
+                        {
+                            <a href="/Catalog/ProductCat?&name=@Model.Podcategory2&cat=@Model.Category&podcat=@Model.Podcategory1">@Model.Podcategory2</a>
+                        }
+                    }
+                </li>
+            }
+            if (Model.ID != 0)
+            {
+                <li><a> -> </a></li>
+                <li><a>@Model.Tov.Название</a></li>
             }
         }
-                     
-
-    </ul>
+        </ul>
 </div>

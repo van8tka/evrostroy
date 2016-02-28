@@ -14,7 +14,7 @@
             <ul class="ml-25">
                 <li class="has-children">
                     <input type="checkbox" name="sub-group-111" id="sub-group-111">
-                    <label for="sub-group-111">Брэнд</label>
+                    <label for="sub-group-111">Производитель</label>
                     <ul class="ml-25">
                         @foreach (var i in Model.BrandOutDoor)
                         {
@@ -22,17 +22,7 @@
                         }
                     </ul>
                 </li>
-                <li class="has-children">
-                    <input type="checkbox" name="sub-group-121" id="sub-group-121">
-                    <label for="sub-group-121">Страна производитель</label>
-                    <ul class="ml-25">
-                        @foreach (var i in Model.CountryOutDoor)
-                        {
-                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 1, name = i }, new { @class = "btn btn-primary col-sm-12" })
-                        }
-                    </ul>
-                </li>
-            </ul>
+             </ul>
         </li>
     </ul>
 
@@ -44,7 +34,7 @@
             <ul class="ml-25">
                 <li class="has-children">
                     <input type="checkbox" name="sub-group-211" id="sub-group-211">
-                    <label for="sub-group-211">Брэнд</label>
+                    <label for="sub-group-211">Производитель</label>
 
                     <ul class="ml-25">
                         @foreach (var i in Model.BrandInDoor)
@@ -53,37 +43,7 @@
                         }
                     </ul>
                 </li>
-                <li class="has-children">
-                    <input type="checkbox" name="sub-group-221" id="sub-group-221">
-                    <label for="sub-group-221">Страна производитель</label>
-                    <ul class="ml-25">
-                        @foreach (var i in Model.CountryInDoor)
-                        {
-                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 3, name = i }, new { @class = "btn btn-primary col-sm-12" })
-                        }
-                    </ul>
-                </li>
-                <li class="has-children">
-                    <input type="checkbox" name="sub-group-231" id="sub-group-231">
-                    <label for="sub-group-231">Цвет</label>
-                    <ul class="ml-25">
-                        @foreach (var i in Model.ColorInDoor)
-                        {
-                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 4, name = i }, new { @class = "btn btn-primary col-sm-12" })
-                        }
-                    </ul>
-                </li>
-                <li class="has-children">
-                    <input type="checkbox" name="sub-group-241" id="sub-group-241">
-                    <label for="sub-group-241">Материал</label>
-                    <ul class="ml-25">
-                        @foreach (var i in Model.MaterialInDoor)
-                        {
-                            @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 5, name = i }, new { @class = "btn btn-primary col-sm-12" })
-                        }
-                    </ul>
-                </li>
-            </ul>
+             </ul>
         </li>
     </ul>
 
@@ -95,29 +55,42 @@
                 <input type="checkbox" name="group-@i" id="group-@i" checked>
                 <label for="group-@i">@Model.Category.ElementAt(i)</label>
                 <ul class="ml-25">
-                    @for (int j = 0; j < Model.CategoryD.Count(); j++)
+                    @if (Model.Category.ElementAt(i) != "Напольные покрытия")
                     {
-                        if (Model.CategoryD.ElementAt(j).Value == Model.Category.ElementAt(i))
+                        for (int j = 0; j < Model.CategoryD.Count(); j++)
                         {
-                              <li class="has-children">
-                                    <input type="checkbox" name="sub-group-@(j+i)" id="sub-group-@(j+i)">
-                                    <label for="sub-group-@(j+i)">@Model.CategoryD.ElementAt(j).Key</label>
-                                    <ul class="ml-25">
-                                        @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
-                                        {
-                                            if (z.Value == @Model.CategoryD.ElementAt(j).Key)
+                            if (Model.CategoryD.ElementAt(j).Value == Model.Category.ElementAt(i))
+                            {
+                                    <li class="has-children">
+                                        <input type="checkbox" name="sub-group-@(j + i)" id="sub-group-@(j + i)">
+                                        <label for="sub-group-@(j + i)">@Model.CategoryD.ElementAt(j).Key</label>
+                                        <ul class="ml-25">
+                                            @foreach (KeyValuePair<string, string> z in Model.PodCategoryD)
                                             {
-                                                @Html.ActionLink(z.Key, "ProductCatPodcat", "Catalog", new { num = 0, name = z.Key }, new { @class = "btn btn-primary col-sm-12" })
+                                                if (z.Value == @Model.CategoryD.ElementAt(j).Key)
+                                                {
+                                                    @Html.ActionLink(z.Key, "ProductCat", "Catalog", new { name = z.Key, cat = Model.Category.ElementAt(i), podcat = z.Value }, new { @class = "btn btn-primary col-sm-12" })
+                                                }
                                             }
-                                        }
-                                    </ul>
-                                </li>
-                         }
+                                        </ul>
+                                    </li>
+                            }
+                        }
                     }
+                    else
+                    {
+                        foreach (KeyValuePair<string, string> z in Model.CategoryD)
+                        {
+                            if (z.Value == @Model.Category.ElementAt(i))
+                            {
+                                @Html.ActionLink(z.Key, "ProductCat", "Catalog", new { name = z.Key, cat = Model.Category.ElementAt(i), podcat = z.Key }, new { @class = "btn btn-primary col-sm-12" })
+                            }
+                        }
+                    }
+
                 </ul>
          </li>
      </ul>
-   }
-    
+   }   
 </nav>
 

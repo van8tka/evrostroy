@@ -1,27 +1,80 @@
 ﻿
+
 @using evrostroy.Domain
+@model evrostroy.Web.Models.MainCharacteristicProductModels
+@foreach (Товары prod in Model.Products)
+{
+    <div class="col-sm-3" style="min-height:550px;">
+        <a href="/Catalog/TovarInfo?id=@prod.ИдТовара&num=@Model.Num&cat=@Model.Category&podcat1=@Model.Podcategory1&podcat2=@Model.Podcategory2">
+            <div class="img-responsive">
+                <img src="~/Content/Image/imageDefault.jpg" />
+            </div>
+            <div class="list-group" style="min-height:100px;">
+                <div class="label label-info">@prod.Категория</div>
+                <div>@prod.Производитель</div>
+                <div>@prod.Название</div>
+                <div>@prod.СтранаПроизводитель</div>
+                <div class="label label-primary">Цена: @prod.Цена руб.</div>
+                @if (prod.Скидка != null)
+                {
+                    <div class="label label-danger">Скидка: @prod.Скидка %</div>
+                    <div class="label label-primary">Цена со скидкой: @prod.ЦенаСоСкидкой руб.</div>
+                }
+                @if (prod.Метка == "уценка" || prod.Метка == "новинка")
+                {
+                    <div class="label label-warning"> @prod.Метка</div>
+                }
+            </div>
+        </a>
+        <div class="btn-group">
+            @Html.ActionLink("Купить", "Buy", "Buy", new { @class = "btn btn-success" })
+            @Html.ActionLink("В корзину", "Buy", "Buy", new { @class = "btn btn-info" })
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@using evrostroy.Domain
 @model Товары
+
 <div class="col-sm-3" style="min-height:550px;">
-    <div class="img-responsive">
-        <img src="~/Content/Image/imageDefault.jpg" />
-    </div>
-    <div class="list-group" style="min-height:100px;">
-        <div class="label label-info">@Model.Категория</div>
-        <div>@Model.Производитель</div>
-        <div>@Model.Название</div>
-        <div class="label label-primary">Цена: @Model.Цена руб.</div>
-        @if (Model.Скидка != null)
+    <a href="/Catalog/TovarInfo?id=@Model.ИдТовара">
+        <div class="img-responsive">
+            <img src="~/Content/Image/imageDefault.jpg" />
+        </div>
+        <div class="list-group" style="min-height:100px;">
+            <div class="label label-info">@Model.Категория</div>
+            <div>@Model.Производитель</div>
+            <div>@Model.Название</div>
+            <div>@Model.СтранаПроизводитель</div>
+            <div class="label label-primary">Цена: @Model.Цена руб.</div>
+            @if (Model.Скидка != null)
             {
-            <div class="label label-danger">Скидка: @Model.Скидка %</div>
+                <div class="label label-danger">Скидка: @Model.Скидка %</div>
                 <div class="label label-primary">Цена со скидкой: @Model.ЦенаСоСкидкой руб.</div>
-        }
-        @if (Model.Метка == "уценка" || Model.Метка == "новинка")
-            {
-            <div class="label label-warning"> @Model.Метка</div>          
             }
-    </div>
+            @if (Model.Метка == "уценка" || Model.Метка == "новинка")
+            {
+                <div class="label label-warning"> @Model.Метка</div>
+            }
+        </div>
+    </a>
     <div class="btn-group">
         @Html.ActionLink("Купить", "Buy", "Buy", new { @class = "btn btn-success" })
         @Html.ActionLink("В корзину", "Buy", "Buy", new { @class = "btn btn-info" })
     </div>
-</div>
+</div>*@
