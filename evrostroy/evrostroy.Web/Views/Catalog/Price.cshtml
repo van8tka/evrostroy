@@ -1,8 +1,24 @@
-﻿
+﻿@model IEnumerable<string>
 @{
     ViewBag.Title = "Каталог";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Каталог продукции:</h2>
+<h2>Каталог продукции</h2>
 @Html.Action("BreadCrumbs", "Catalog")
+<div class="container">
+    <div class="row">
+        <h4>
+          Выберите интересующий Вас раздел:
+        </h4>
+        
+          
+              @foreach (var i in Model)
+              {
+                <div class="col-sm-12">
+                    @Html.ActionLink(i, "ProductCat", "Catalog", new { num = 1, name = i }, new { @class = "btn mybtn col-sm-12" })
+                </div>
+              }
+          
+   </div>
+</div>
+

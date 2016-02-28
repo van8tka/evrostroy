@@ -1,0 +1,105 @@
+﻿@model IEnumerable<evrostroy.Domain.Товары>
+
+@{
+    ViewBag.Title = "Список товара";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="panel-heading">
+        <h4>Всего в каталоге: @ViewBag.Kolvo </h4>
+    </div>
+    <p>
+        @Html.ActionLink("Добавить новый товар", "Create","Admin", new {@class = "btn btn-primary" })
+    </p>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered ml-65">
+            <tr>
+                <th class="text-right">
+                    ID
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Название)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Производитель)
+                </th>
+                <th>
+                   Страна
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Категория)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Подкатегория1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Подкатегория2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Метка)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Публикация)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Цена)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Скидка)
+                </th>
+                <th>
+                   Со скидкой
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.ИдТовара)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Название)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Производитель)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.СтранаПроизводитель)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Категория)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Подкатегория1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Подкатегория2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Метка)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Публикация)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Цена)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Скидка)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ЦенаСоСкидкой)
+                    </td>
+                    <td class="btn-group-vertical">
+                        @Html.ActionLink("Изменить", "Edit","Admin", new { id=item.ИдТовара},new {@class="btn btn-info" })
+                        @Html.ActionLink("Шаблон", "CreateAs", "Admin", new { id = item.ИдТовара }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Удалить", "Delete", "Admin", new { id = item.ИдТовара }, new { @class = "btn btn-info" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

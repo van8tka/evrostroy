@@ -12,56 +12,35 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("ЛюксЕвроСтрой", "MainPage", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-         
-            <div class="flr mr10 mt10">
+            <div class="flr mr10">
                 @Html.Partial("Enter")
             </div>
-            <div class="flr mr40 mt10">
-                @Html.Partial("Cart")
-            </div>
-
-            <br /><br />
-            <div class="navbar-collapse collapse">
+           <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Главная", "MainPage", "Home")</li>
+                    <li>@Html.ActionLink("Товар", "Tovar", "Admin")</li>
                     <li>@Html.ActionLink("Каталог", "Price", "Catalog")</li>
                     <li>@Html.ActionLink("Доставка", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Оплата", "Contact", "Home")</li>
-                    <li>  <a href="/Catalog/ProductStock?metka=уценка">Уценка</a>   </li>
-                    <li><a href="/Catalog/ProductStock?metka=скидка">Скидки и акции</a> </li>
                     <li>@Html.ActionLink("О магазине", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Отзывы", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Статьи", "Contact", "Home")</li>
                 </ul>
-            </div>     
+            </div>
         </div>
     </div>
-    @*правое меню*@
-    <div class="panel mt50" >
-     
-            <div id="categories" class="col-sm-2 hidden-xs" style="background-color:lightgray; padding-top:20px;">
-                @Html.Action("Menu", "Nav")
-            </div>
-            <div class="container body-content" style="margin-left:18vw;">
-                @RenderBody()
-            </div>
-
+                
+        <div class="container body-content">
+            @RenderBody()
         </div>
-    <div class="footer">
-            <div class="col-sm-10 mt30 mr50">
-                @DateTime.Now.Year - ЛюксЕвроСтрой
-          </div>  
-        
-  </div> 
-   
 
+  
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

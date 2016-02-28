@@ -20,10 +20,11 @@ namespace evrostroy.Web.Controllers
         private string novinka = "новинка";
         private string ycenka = "уценка";
         private string skidka = "скидка";
-
+        [HttpGet]
         public ActionResult Price()
         {
-            return View();
+            IEnumerable<string> cat = datamanager.ProductsRepository.GetAllProducts().Select(x => x.Категория).Distinct().OrderBy(x => x);
+            return View(cat);
         }
 
         //про акционные товары скидка уценка новинка
@@ -78,7 +79,7 @@ namespace evrostroy.Web.Controllers
                     
                         IEnumerable<Товары> podcattov = categor.Where(x => x.Подкатегория1 == podcat).OrderBy(x => x.Название);
                         if(podcat==name) //выбор подкатегории в хлебных крошках
-                    {
+                         {
                             model.Products = podcattov.Skip((page - 1) * PageSize).Take(PageSize);
                             TotalItemsProduct = podcattov.Count();
                             name = podcat;
@@ -108,7 +109,7 @@ namespace evrostroy.Web.Controllers
                         model.NameCategory = name;
                         model.Route = "Входные двери/Производитель/" + name;
                         cat = "Входные двери";
-                        podcat = "Производитель";
+                        //podcat = "Производитель";
                         podcat2 = name;
                         break;
                     }
@@ -118,7 +119,7 @@ namespace evrostroy.Web.Controllers
                         TotalItemsProduct = datamanager.ProductsRepository.GetAllProducts().Where(x => x.Категория == "Межкомнатные двери").Where(x => x.Производитель == name).Count();
                         model.NameCategory = name;
                         cat = "Межкомнатные двери";
-                        podcat = "Производитель";
+                        //podcat = "Производитель";
                         podcat2 = name;
                         model.Route = "Межкомнатные двери/Производитель/" + name;
                         break;
@@ -162,7 +163,7 @@ namespace evrostroy.Web.Controllers
         [HttpPost]
         public ActionResult ProductCat(MainCharacteristicProductModels model)
         {
-            return RedirectToAction("ProductCat", new { num = model.Num, name = model.NameCategory,route = model.Route, PageSize = model.PagingInfo.ItemsPerPage });
+            return RedirectToAction("ProductCat", new {page = (model.PagingInfo.CurrentPage>0)?model.PagingInfo.CurrentPage:1 ,num = model.Num, name = model.NameCategory, cat = model.Category, podcat=model.Podcategory1, PageSize = model.PagingInfo.ItemsPerPage });
         }
        
         // хлебные крошки
@@ -197,7 +198,8 @@ namespace evrostroy.Web.Controllers
                 mod.Podcategory1 = podcat1;
                 if (podcat2 == null || podcat2 == "")
                 {
-                    mod.Podcategory2 = mod.Tov.Подкатегория2;
+                    //mod.Podcategory2 = mod.Tov.Подкатегория2;  
+                    mod.Podcategory2 = podcat2;
                 }
                 else
                 {

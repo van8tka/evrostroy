@@ -3,13 +3,18 @@
 <nav class="navmenu navmenu-default navmenu-fixed-left" role="navigation">
 
     @foreach (var i in Model.Attention)
-            {
-                    @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn btn-danger col-sm-12" })
-            }
+    {
+        if (i == "НОВИНКА")
+        {
+            @Html.ActionLink(i, "ProductStock", "Catalog", new { metka = i }, new { @class = "btn col-sm-12 mybtn"})
+        }
+    }
 
     <ul class="cd-accordion-menu animated ml-25">
         <li class="has-children">
-            <input type="checkbox" name="group-111" id="group-111" checked>
+            @*что бы по умолчанию меню было раскрыто надо добавить checked
+            <input type="checkbox" name="group-111" id="group-111" checked>*@ 
+            <input type="checkbox" name="group-111" id="group-111">
             <label for="group-111">Входные двери</label>
             <ul class="ml-25">
                 <li class="has-children">
@@ -28,7 +33,7 @@
 
     <ul class="cd-accordion-menu animated ml-25">
         <li class="has-children">
-            <input type="checkbox" name="group-211" id="group-211" checked>
+            <input type="checkbox" name="group-211" id="group-211">
             <label for="group-211">Межкомнатные двери</label>
 
             <ul class="ml-25">
@@ -52,7 +57,7 @@
     {  
         <ul class="cd-accordion-menu animated ml-25">
             <li class="has-children">
-                <input type="checkbox" name="group-@i" id="group-@i" checked>
+                <input type="checkbox" name="group-@i" id="group-@i">
                 <label for="group-@i">@Model.Category.ElementAt(i)</label>
                 <ul class="ml-25">
                     @if (Model.Category.ElementAt(i) != "Напольные покрытия")

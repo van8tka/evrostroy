@@ -9,6 +9,66 @@
     padding-right: 15px;
 }
 
+
+
+
+/*/хлебные крошки от magic*/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+
+/** Primary button **/
+.btn-breadcrumb .btn.btn-primary:not(:last-child):after {
+  border-left: 10px solid #428bca;
+}
+.btn-breadcrumb .btn.btn-primary:not(:last-child):before {
+  border-left: 10px solid #357ebd;
+}
+.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):after {
+  border-left: 10px solid #3276b1;
+}
+.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):before {
+  border-left: 10px solid #285e8e;
+}
+
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -30,7 +90,7 @@ position: absolute;
 opacity: 0;
 }
 .cd-accordion-menu label, .cd-accordion-menu a {
-    margin-top:4px;
+margin-top:4px;
 position: relative;
 display: block;
 padding: 10px 10px 10px 14px;
@@ -39,6 +99,11 @@ box-shadow: inset 0 -1px #555960;
 color: #ffffff;
 font-size: 1.2rem;
 }
+
+.cd-accordion-menu label:hover,.cd-accordion-menu a:hover {
+background:#353535;
+}
+
 .cd-accordion-menu ul {
 display: none;
 }
@@ -48,11 +113,28 @@ display: none;
 display: block;
 }
 
+/*моя кнопка*/
+a.mybtn{
+background:#4d5158;
+ margin-left:5px; 
+ margin-bottom:7px;
+ color:whitesmoke; 
+ text-decoration:none
+}
+a.mybtn:hover{
+background:#353535;
+ color:whitesmoke;
+}
+a.mybtn:active{
+background:#555960;
+}
 
 
 
 
-//pager
+
+
+\\pager
 /*border-top: 2px solid silver;*/
 .pager2 { max-height: 20px;}
 div.pager2 {text-align:center; padding: .5em 0 0 0; margin-top: 1em; }
@@ -74,9 +156,17 @@ div.pager2 a.selected {background-color:#353535; color:white;}
     color:black;
 }
 
+.footer{
+    height:100px;
+    background:whitesmoke;
+    margin-bottom:-25px;
+}
 
 .ml-25{
     margin-left:-25px;
+}
+.ml-65{
+    margin-left:-65px;
 }
 .mb10{
     margin-bottom:10px;

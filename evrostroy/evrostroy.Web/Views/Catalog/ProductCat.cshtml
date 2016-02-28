@@ -7,39 +7,38 @@
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
 <h3>@Model.NameCategory.ToString()</h3>
-@*хлебные крошки*@
-@Html.Action("BreadCrumbs", "Catalog", new { mod = Model})
+<div class="container">
+    <div class="row">
+        @*хлебные крошки*@
+        @Html.Action("BreadCrumbs", "Catalog", new { mod = Model })
 
-@using (Html.BeginForm())
-{
-    <div class="dropdown">
-        Товара на странице:
-        @Html.DropDownListFor(mod => mod.PagingInfo.ItemsPerPage, Model.PageList, new { @class = "btn btn-default dropdown-toggle" })
-        @Html.HiddenFor(mod => mod.NameCategory)
-        <input type="submit" value="Применить" class="btn btn-default"/>
-    </div>
-
-    <div class="pager2" id="pagerid2top">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductCat", new { page = x, num = Model.Num, name = Model.NameCategory, route = Model.Route, PageSize = Model.PagingInfo.ItemsPerPage }))
-    </div>
-
-    <div class="row mt10">
-       
-            @Html.Partial("ProductsList", Model)
-
-    </div>
-
-    @*<div class="row mt10">
-        @foreach (Товары prod in Model.Products)
+        @using (Html.BeginForm())
         {
-            @Html.Partial("ProductsList", prod)
+            <div class="dropdown">
+                Товара на странице:
+                @Html.DropDownListFor(mod => mod.PagingInfo.ItemsPerPage, Model.PageList, new { @class = "btn btn-default dropdown-toggle" })
+                @Html.HiddenFor(mod => mod.NameCategory)
+                @Html.HiddenFor(mod => mod.Num)
+                @Html.HiddenFor(mod => mod.Category)
+                @Html.HiddenFor(mod => mod.Podcategory1)
+               <input type="submit" value="Применить" class="btn btn-default" />
+            </div>
+
+            <div class="pager2" id="pagerid2top">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductCat", new { page = x, num = Model.Num, name = Model.NameCategory, cat = Model.Category, podcat = Model.Podcategory1, PageSize = Model.PagingInfo.ItemsPerPage }))
+            </div>
+
+            <div class="row mt10">
+
+                @Html.Partial("ProductsList", Model)
+
+            </div>
+
+            <div class="pager2" id="pager2idbot">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductCat", new { page = x, num = Model.Num, name = Model.NameCategory, cat = Model.Category, podcat = Model.Podcategory1, PageSize = Model.PagingInfo.ItemsPerPage }))
+            </div>
+
         }
-    </div>*@
 
-    <div class="pager2" id="pager2idbot">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductCat", new { page = x, num = Model.Num, name = Model.NameCategory, route = Model.Route, PageSize = Model.PagingInfo.ItemsPerPage }))
     </div>
-
-}
-
-
+</div>
