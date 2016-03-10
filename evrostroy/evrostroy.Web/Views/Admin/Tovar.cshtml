@@ -61,7 +61,7 @@
                         @Html.DisplayFor(modelItem => item.ИдТовара)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Название)
+                        @Html.ActionLink(item.Название, "Edit", "Admin", new { id = item.ИдТовара })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Производитель)
@@ -94,8 +94,7 @@
                         @Html.DisplayFor(modelItem => item.ЦенаСоСкидкой)
                     </td>
                     <td class="btn-group-vertical">
-                        @Html.ActionLink("Изменить", "Edit","Admin", new { id=item.ИдТовара},new {@class="btn btn-info" })
-                        @Html.ActionLink("Шаблон", "CreateAs", "Admin", new { id = item.ИдТовара }, new { @class = "btn btn-default" })
+                       @Html.ActionLink("Шаблон", "CreateAs", "Admin", new { id = item.ИдТовара }, new { @class = "btn btn-info" })
                         @Html.ActionLink("Удалить", "Delete", "Admin", new { id = item.ИдТовара }, new { @class = "btn btn-info" })
                     </td>
                 </tr>

@@ -13,7 +13,7 @@ namespace evrostroy.Domain.Interfaces
         Товары GetProductByName(string name);
         Товары GetProductByID(int id);
         ОснХарактеристики GetMainCharById(int id);
-
+        void CreateNewTovar(Товары tov, ОснХарактеристики OsHar, IEnumerable<ДопХарактеристики> DopHar);
         IEnumerable<ОснХарактеристики> GetMainCharByCateg(string category);
     }
 }

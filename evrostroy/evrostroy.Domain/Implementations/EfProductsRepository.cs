@@ -50,5 +50,28 @@ namespace evrostroy.Domain.Implementations
         {
             return context.Товары.Where(x => x.Название == name).FirstOrDefault();
         }
+
+        public void CreateNewTovar(Товары tov, ОснХарактеристики OsHar, IEnumerable<ДопХарактеристики> DopHar)
+        {
+            if(tov!=null)
+            {
+                context.Товары.Add(tov);
+                context.SaveChanges();
+            }
+           if(OsHar!=null)
+            {
+                context.ОснХарактеристики.Add(OsHar);
+                context.SaveChanges();
+            }
+           foreach(var i in DopHar)
+            {
+                if(i!=null)
+                {
+                    context.ДопХарактеристики.Add(i);
+                }
+                context.SaveChanges();
+            }
+
+        }
     }
 }
